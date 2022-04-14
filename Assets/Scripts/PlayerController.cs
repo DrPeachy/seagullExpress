@@ -8,12 +8,13 @@ public class PlayerController : MonoBehaviour
     private PlayerAction _playerAction;
     public float movSpeed;
     private Rigidbody2D _rig;
-    public Vector2 velo;
-    void Start()
-    {
+
+    private void Awake() {
         _playerAction = new PlayerAction();
         _rig = GetComponent<Rigidbody2D>();
-        
+    }
+    void Start()
+    {
         
     }
 
@@ -29,7 +30,8 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate() {
         Vector2 moveInput = _playerAction.Movement.Move.ReadValue<Vector2>();
         _rig.velocity = moveInput * movSpeed;
-        velo = _rig.velocity;
+        float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg - 90f;
+        _rig.rotation = angle;
     }
     void Update()
     {
