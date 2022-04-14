@@ -28,16 +28,16 @@ public class PlayerController : MonoBehaviour
     
 
     private void FixedUpdate() {
-        Vector2 moveInput = _playerAction.Movement.Move.ReadValue<Vector2>();
-        _rig.velocity = moveInput * movSpeed;
-        float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg - 90f;
-        if(moveInput != Vector2.zero) _rig.rotation = angle;
         
     }
 
 
     void Update()
     {
+        Vector2 moveInput = _playerAction.Movement.Move.ReadValue<Vector2>();
+        _rig.velocity = moveInput * movSpeed;
+        float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg - 90f;
+        if(moveInput != Vector2.zero) _rig.rotation = angle;
         
     }
 }
