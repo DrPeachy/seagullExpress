@@ -738,4 +738,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 288086994}
-  moveSpd: 0
+  moveSpd: 100

@@ -24,7 +24,7 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
     ""name"": ""PlayerAction"",
     ""maps"": [
         {
-            ""name"": ""Movement"",
+            ""name"": ""PlayerControl"",
             ""id"": ""457d8d52-3161-40b5-a502-33e03ac4af4c"",
             ""actions"": [
                 {
@@ -35,6 +35,15 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Click"",
+                    ""type"": ""Button"",
+                    ""id"": ""0b7c5976-4400-4d20-a6c7-492da2c748ac"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -48,15 +57,27 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""67ba6eaa-8ec4-4a41-a293-8ecbbe84f556"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
     ],
     ""controlSchemes"": []
 }");
-        // Movement
-        m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
-        m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
+        // PlayerControl
+        m_PlayerControl = asset.FindActionMap("PlayerControl", throwIfNotFound: true);
+        m_PlayerControl_Move = m_PlayerControl.FindAction("Move", throwIfNotFound: true);
+        m_PlayerControl_Click = m_PlayerControl.FindAction("Click", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -113,40 +134,49 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Movement
-    private readonly InputActionMap m_Movement;
-    private IMovementActions m_MovementActionsCallbackInterface;
-    private readonly InputAction m_Movement_Move;
-    public struct MovementActions
+    // PlayerControl
+    private readonly InputActionMap m_PlayerControl;
+    private IPlayerControlActions m_PlayerControlActionsCallbackInterface;
+    private readonly InputAction m_PlayerControl_Move;
+    private readonly InputAction m_PlayerControl_Click;
+    public struct PlayerControlActions
     {
         private @PlayerAction m_Wrapper;
-        public MovementActions(@PlayerAction wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_Movement_Move;
-        public InputActionMap Get() { return m_Wrapper.m_Movement; }
+        public PlayerControlActions(@PlayerAction wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_PlayerControl_Move;
+        public InputAction @Click => m_Wrapper.m_PlayerControl_Click;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerControl; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(MovementActions set) { return set.Get(); }
-        public void SetCallbacks(IMovementActions instance)
+        public static implicit operator InputActionMap(PlayerControlActions set) { return set.Get(); }
+        public void SetCallbacks(IPlayerControlActions instance)
         {
-            if (m_Wrapper.m_MovementActionsCallbackInterface != null)
+            if (m_Wrapper.m_PlayerControlActionsCallbackInterface != null)
             {
-                @Move.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnMove;
+                @Move.started -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnMove;
+                @Click.started -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnClick;
+                @Click.performed -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnClick;
+                @Click.canceled -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnClick;
             }
-            m_Wrapper.m_MovementActionsCallbackInterface = instance;
+            m_Wrapper.m_PlayerControlActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @Click.started += instance.OnClick;
+                @Click.performed += instance.OnClick;
+                @Click.canceled += instance.OnClick;
             }
         }
     }
-    public MovementActions @Movement => new MovementActions(this);
-    public interface IMovementActions
+    public PlayerControlActions @PlayerControl => new PlayerControlActions(this);
+    public interface IPlayerControlActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnClick(InputAction.CallbackContext context);
     }
 }

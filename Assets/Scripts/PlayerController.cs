@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Vector2 moveInput = _playerAction.Movement.Move.ReadValue<Vector2>();
+        Vector2 moveInput = _playerAction.PlayerControl.Move.ReadValue<Vector2>();
         if(_rig.isKinematic){
             _rig.velocity = moveInput * movSpeed;
             float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg - 90f;
