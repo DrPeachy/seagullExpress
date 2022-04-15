@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class pkgSelectWindow : MonoBehaviour
 {
     private TextMeshProUGUI[] pkgInfos= new TextMeshProUGUI[6];
+    public GameObject pkgPrefab;
     
     private void OnEnable() {
         setPkgNum();
@@ -13,8 +14,13 @@ public class pkgSelectWindow : MonoBehaviour
         displayPkgs(PubVar.packages, pkgInfos);        
     }
  
+    private void OnDisable() {
+        
+    }
  
  
+
+
  
     package[] pkgRandomize(){
         package[] packages = new package[7];
@@ -60,5 +66,9 @@ public class pkgSelectWindow : MonoBehaviour
                 PubVar.pkgNum = 6;
                 break;
         }
+    }
+
+    void generatePkg(){
+
     }
 }
