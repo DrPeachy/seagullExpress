@@ -20,15 +20,17 @@ public class UILoader : MonoBehaviour
     }
 
     private void FixedUpdate() {
-
-    }
-
-    private void OnTriggerStay2D(Collider2D other) {
-        if(other.CompareTag("Player") && _playerAction.PlayerControl.Interact.IsPressed()){
-            if(oldUI&&newUI){
-                oldUI.SetActive(false);
-                newUI.SetActive(true);
+        if(true){
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right);
+            Debug.DrawRay(transform.position , Vector2.right, Color.red);
+            if(hit.collider.CompareTag("Player") && _playerAction.PlayerControl.Interact.IsPressed()){
+                if(oldUI&&newUI){
+                    oldUI.SetActive(false);
+                    newUI.SetActive(true);
+                }         
             }
         }
     }
+
+
 }

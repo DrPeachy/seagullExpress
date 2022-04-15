@@ -7,10 +7,30 @@ public class SceneLoader : MonoBehaviour
 {
     // Start is called before the first frame update
     public string sceneName;
+    public PlayerAction _playerAction;
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.CompareTag("Player")){
-            SceneManager.LoadScene(sceneName);
+    private void Awake() {
+        _playerAction = new PlayerAction();
+    }
+
+    private void OnEnable() {
+        _playerAction.Enable();
+    }
+
+    private void OnDisable() {
+        _playerAction.Disable();
+    }
+
+
+    private void FixedUpdate() {
+        if(true){
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right);
+            Debug.DrawRay(transform.position , Vector2.right, Color.red);
+            if(hit.collider.CompareTag("Player") && _playerAction.PlayerControl.Interact.IsPressed()){
+                SceneManager.LoadScene(sceneName);
+                    
+            }
         }
     }
+
 }

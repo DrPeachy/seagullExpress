@@ -47,7 +47,7 @@ public class pkgSelectWindow : MonoBehaviour
                         + "\naddress: " + pkgs[i].address
                         + "\n\nship before: " + pkgs[i].due
                         + "\nincome: " + pkgs[i].income
-                        + ((PubVar.pkgNum <= i) ? "unavailable":"available");
+                        + ((PubVar.pkgNum <= i) ? "\nunavailable":"\navailable");
 
             if(PubVar.pkgNum <= i) slots.Find("slot" + i).Find("select").GetComponent<Toggle>().interactable = false;
         }

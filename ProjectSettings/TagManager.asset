@@ -8,7 +8,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Obstacle
     uniqueID: 956220351
+    locked: 0
+  - name: Interact
+    uniqueID: 3456641863
     locked: 0
   - name: Player
     uniqueID: 288748643
