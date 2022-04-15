@@ -7,11 +7,15 @@ public class pkgSelectWindow : MonoBehaviour
 {
     private TextMeshProUGUI[] pkgInfos= new TextMeshProUGUI[6];
     public GameObject pkgPrefab;
+
+    private int pkgNum;
     
     private void OnEnable() {
+        pkgNum = PubVar.playerLevel + 3;
         setPkgNum();
         PubVar.packages = pkgRandomize();
-        displayPkgs(PubVar.packages, pkgInfos);        
+        displayPkgs(PubVar.packages, pkgInfos);
+             
     }
  
     private void OnDisable() {
@@ -23,22 +27,23 @@ public class pkgSelectWindow : MonoBehaviour
 
  
     package[] pkgRandomize(){
-        package[] packages = new package[7];
+        package[] packages = new package[pkgNum];
         int i;
         // available package
-        for(i = 0; i < 6; i++){
-            packages[i] = new package(i, (PubVar.pkgNum > i)? 0:-1, "a", "a", 90f, 100, 100);
+        for(i = 0; i < pkgNum; i++){
+            packages[i] = new package(i, (3 > i)? 0:-1, "a", "a", 90f, 100, 100);
         }
-        // not available package
-        // for(int j = 4; j < 6; j++){
-        //     packages[i] = new package(i, -1, "b", "b", 90f, 100, 100);
-        // }
+
         return packages;
     }
 
     void displayPkgs(package[] pkgs, TextMeshProUGUI[] texts){
         Transform slots = transform.Find("slots");
         for(int i = 0; i < 6; i++){
+            if(pkgNum <= i){
+                slots.Find("slot" + i).gameObject.SetActive(false);
+                continue;
+            }
             texts[i] = slots.Find("slot" + i).Find("pkgInfo").GetComponent<TextMeshProUGUI>();
 
             texts[i].text = "package id: " + pkgs[i].id
@@ -47,9 +52,9 @@ public class pkgSelectWindow : MonoBehaviour
                         + "\naddress: " + pkgs[i].address
                         + "\n\nship before: " + pkgs[i].due
                         + "\nincome: " + pkgs[i].income
-                        + ((PubVar.pkgNum <= i) ? "\nunavailable":"\navailable");
+                        + ((pkgs[i].state == -1) ? "\nunavailable":"\navailable");
 
-            if(PubVar.pkgNum <= i) slots.Find("slot" + i).Find("select").GetComponent<Toggle>().interactable = false;
+            if(pkgs[i].state == -1) slots.Find("slot" + i).Find("select").GetComponent<Toggle>().interactable = false;
         }
     }
 
