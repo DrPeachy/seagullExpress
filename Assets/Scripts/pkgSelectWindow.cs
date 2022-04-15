@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.UI;
 public class pkgSelectWindow : MonoBehaviour
 {
     private TextMeshProUGUI[] pkgInfos= new TextMeshProUGUI[6];
@@ -40,7 +40,10 @@ public class pkgSelectWindow : MonoBehaviour
                         + "\n\nto: " + pkgs[i].to
                         + "\naddress: " + pkgs[i].address
                         + "\n\nship before: " + pkgs[i].due
-                        + "\nincome: " + pkgs[i].income;
+                        + "\nincome: " + pkgs[i].income
+                        + ((PubVar.pkgNum <= i) ? "unavailable":"available");
+
+            if(PubVar.pkgNum <= i) slots.Find("slot" + i).Find("select").GetComponent<Toggle>().interactable = false;
         }
     }
 
