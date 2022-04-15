@@ -37,7 +37,7 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Click"",
+                    ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""0b7c5976-4400-4d20-a6c7-492da2c748ac"",
                     ""expectedControlType"": ""Button"",
@@ -65,7 +65,7 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Click"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -77,7 +77,7 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
         // PlayerControl
         m_PlayerControl = asset.FindActionMap("PlayerControl", throwIfNotFound: true);
         m_PlayerControl_Move = m_PlayerControl.FindAction("Move", throwIfNotFound: true);
-        m_PlayerControl_Click = m_PlayerControl.FindAction("Click", throwIfNotFound: true);
+        m_PlayerControl_Interact = m_PlayerControl.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -138,13 +138,13 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerControl;
     private IPlayerControlActions m_PlayerControlActionsCallbackInterface;
     private readonly InputAction m_PlayerControl_Move;
-    private readonly InputAction m_PlayerControl_Click;
+    private readonly InputAction m_PlayerControl_Interact;
     public struct PlayerControlActions
     {
         private @PlayerAction m_Wrapper;
         public PlayerControlActions(@PlayerAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_PlayerControl_Move;
-        public InputAction @Click => m_Wrapper.m_PlayerControl_Click;
+        public InputAction @Interact => m_Wrapper.m_PlayerControl_Interact;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControl; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -157,9 +157,9 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnMove;
-                @Click.started -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnClick;
-                @Click.performed -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnClick;
-                @Click.canceled -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnClick;
+                @Interact.started -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_PlayerControlActionsCallbackInterface = instance;
             if (instance != null)
@@ -167,9 +167,9 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @Click.started += instance.OnClick;
-                @Click.performed += instance.OnClick;
-                @Click.canceled += instance.OnClick;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -177,6 +177,6 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
     public interface IPlayerControlActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnClick(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }

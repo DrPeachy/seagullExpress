@@ -13,10 +13,7 @@ public class PlayerController : MonoBehaviour
         _playerAction = new PlayerAction();
         _rig = GetComponent<Rigidbody2D>();
     }
-    void Start()
-    {
-        
-    }
+
 
     private void OnEnable() {
         _playerAction.Enable();

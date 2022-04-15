@@ -4,14 +4,27 @@ using UnityEngine;
 
 public class UILoader : MonoBehaviour
 {
-    private PlayerAction _playerAction;
+    public PlayerAction _playerAction;
     public GameObject newUI;
     public GameObject oldUI;
-    private void Start() {
+    private void Awake() {
         _playerAction = new PlayerAction();
     }
-    private void OnTriggerEnter(Collider other) {
-        if(_playerAction.PlayerControl.Click.ReadValue<float>() == 1 && other.CompareTag("Player")){
+
+    private void OnEnable() {
+        _playerAction.Enable();
+    }
+
+    private void OnDisable() {
+        _playerAction.Disable();
+    }
+
+    private void FixedUpdate() {
+
+    }
+
+    private void OnTriggerStay2D(Collider2D other) {
+        if(other.CompareTag("Player") && _playerAction.PlayerControl.Interact.IsPressed()){
             if(oldUI&&newUI){
                 oldUI.SetActive(false);
                 newUI.SetActive(true);
