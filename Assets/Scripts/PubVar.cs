@@ -10,17 +10,15 @@ public static class PubVar
     public static int rating;
     public static float flySpd;
     public static float walkSpd;
-    public static float pkgWeight;
-    public static int level;
+    public static int playerWeight;
+    public static int playerLevel = 1;
     
 
     //=========order info============
 
-    /*
-        -1: empty, 0: ready, 1: delivering, 2: delivered
-    */
-    public static int[] pkgStates = {-1,-1,-1,-1,-1,-1};
-    public static float[] pkgWeights = {0,0,0,0,0,0};
+
+
+    public static package[] packages;
     public static int pkgNum;
 
 }
