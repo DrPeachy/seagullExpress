@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class pkgSelectWindow : MonoBehaviour
 {
     private TextMeshProUGUI[] pkgInfos= new TextMeshProUGUI[6];
+    //==============pkg generator=============
+    public Vector3 firstPos;
     public GameObject pkgPrefab;
 
-    private int pkgNum;
     
     private void OnEnable() {
-        pkgNum = PubVar.playerLevel + 3;
+        PubVar.pkgNum = PubVar.playerLevel + 3;
         setPkgNum();
         PubVar.packages = pkgRandomize();
         displayPkgs(PubVar.packages, pkgInfos);
@@ -22,39 +23,28 @@ public class pkgSelectWindow : MonoBehaviour
         
     }
  
- 
-
-
- 
     package[] pkgRandomize(){
-        package[] packages = new package[pkgNum];
+        package[] packages = new package[PubVar.pkgNum];
         int i;
         // available package
-        for(i = 0; i < pkgNum; i++){
+        for(i = 0; i < PubVar.pkgNum; i++){
             packages[i] = new package(i, (3 > i)? 0:-1, "a", "a", 90f, 100, 100);
         }
-
         return packages;
     }
 
     void displayPkgs(package[] pkgs, TextMeshProUGUI[] texts){
         Transform slots = transform.Find("slots");
         for(int i = 0; i < 6; i++){
-            if(pkgNum <= i){
+            if(PubVar.pkgNum <= i){
                 slots.Find("slot" + i).gameObject.SetActive(false);
                 continue;
             }
             texts[i] = slots.Find("slot" + i).Find("pkgInfo").GetComponent<TextMeshProUGUI>();
+            //display pkgs' info
+            texts[i].text = pkgs[i].ToString();
 
-            texts[i].text = "package id: " + pkgs[i].id
-                        + "\nweight: " + pkgs[i].weight
-                        + "\n\nto: " + pkgs[i].to
-                        + "\naddress: " + pkgs[i].address
-                        + "\n\nship before: " + pkgs[i].due
-                        + "\nincome: " + pkgs[i].income
-                        + ((pkgs[i].state == -1) ? "\nunavailable":"\navailable");
-
-            if(pkgs[i].state == -1) slots.Find("slot" + i).Find("select").GetComponent<Toggle>().interactable = false;
+            if(!pkgs[i].checkAvailable()) slots.Find("slot" + i).Find("select").GetComponent<Toggle>().interactable = false;
         }
     }
 
@@ -73,7 +63,10 @@ public class pkgSelectWindow : MonoBehaviour
         }
     }
 
-    void generatePkg(){
-
+    public void generatePkg(){
+        Vector3 dif = new Vector3(3, 0, 0);
+        for(int i = 0; i < PubVar.pkgNum; i++){
+            Instantiate(pkgPrefab, firstPos + i * dif, Quaternion.Euler(0, 0, 0));
+        }
     }
 }

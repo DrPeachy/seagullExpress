@@ -27,6 +27,7 @@ public class UILoader : MonoBehaviour
                 if(oldUI&&newUI){
                     oldUI.SetActive(false);
                     newUI.SetActive(true);
+                    
                 }         
             }
         }
