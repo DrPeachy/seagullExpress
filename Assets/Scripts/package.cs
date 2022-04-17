@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class package
 {
+        public string name{get;set;}
         public int id {get;set;}
         public int state {get;set;}
         public string to {get;set;}
