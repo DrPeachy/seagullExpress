@@ -13,11 +13,13 @@ public class package
         public int income {get;set;}
         public int weight {get;set;}
         public string requirement {get;set;}
+        public float integrity;
 
     /*
         -1: not avaible, 0: avaible, 1: delivering, 2: delivered
     */
-        public package(int anId, int aState, string aTo, string anAddress, float aDue, int aIncome, int aWeight, string req = null){
+        public package(string name, int anId, int aState, string aTo, string anAddress, float aDue, int aIncome, int aWeight){
+            this.name =name;
             id = anId;
             state = aState;
             to = aTo;
@@ -25,11 +27,13 @@ public class package
             due = aDue;
             income = aIncome;
             weight = aWeight;
-            requirement = req;
+            integrity = 100;
+            setRequirement();
         }
 
         public override string ToString(){
             return "package id: " + id
+                        + "\nname: " + name
                         + "\nweight: " + weight
                         + "\n\nto: " + to
                         + "\naddress: " + address
@@ -45,6 +49,13 @@ public class package
             else return false;
         }
 
-
-
+        private void setRequirement(){
+            if(due < 120 && income > 400 && weight > 400) requirement = "plane";
+            else if(due < 240 && income > 300 && weight > 300) requirement = "jetpack";
+            else requirement = null;
+        }
+        
+        public void getHit(float num){
+            integrity -= num;
+        }
 }

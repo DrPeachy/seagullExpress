@@ -10,12 +10,13 @@ public class pkgSelectWindow : MonoBehaviour
     public Vector3 firstPos;
     public GameObject pkgPrefab;
 
-    
-    private void OnEnable() {
+    private void Start() {
         PubVar.pkgNum = PubVar.playerLevel + 3;
         setPkgNum();
         PubVar.packages = pkgRandomize();
         displayPkgs(PubVar.packages, pkgInfos);
+    }
+    private void OnEnable() {
              
     }
  
@@ -28,7 +29,7 @@ public class pkgSelectWindow : MonoBehaviour
         int i;
         // available package
         for(i = 0; i < PubVar.pkgNum; i++){
-            packages[i] = new package(i, (3 > i)? 0:-1, "a", "a", 90f, 100, 100);
+            packages[i] = PubVar.animals[Random.Range(0, PubVar.animals.Length)].orderPkg();
         }
         return packages;
     }
