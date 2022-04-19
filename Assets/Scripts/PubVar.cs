@@ -20,11 +20,11 @@ public static class PubVar
     public static int pkgNum;
     //==========animal info===========
     public static Animal[] animals = {
-        new Animal("Mr.Bear", "cave", new string[]{"honey", "fish","berry"}),
         new Animal("Ms.Crocodile", "river", new string[]{"fried chicken", "burger", "human"}),
-        new Animal("the G.O.A.T", "mountain top", new string[]{"Laptop", "Gundamn", "Unity4d", "Gamepad", "rocket","EVA-02"}),
-        new Animal("Ms.Fox", "plain", new string[]{"Ducci", "Shanel", "Bior", "Vouis Luitton", "Drapa"})
-        
+        new Animal("the G.O.A.T", "mountain top", new string[]{"Laptop", "Gundamn", "Unity4d", "Gamepad", "rocket","EVA-30"}),
+        new Animal("Ms.Fox", "plain", new string[]{"Ducci", "Shanel", "Bior", "Vouis Luitton", "Drapa"}),
+        new Animal("Mr.Bear", "cave", new string[]{"honey", "fish","berry"}),
+
     };
 
 }
