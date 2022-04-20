@@ -53,7 +53,9 @@ public class backPackWindow : MonoBehaviour
                 slots.Find("slot" + i).gameObject.SetActive(false);
                 continue;
             }
+            print(PubVar.packages[i].state+"");
             if(PubVar.packages[i].state == 1){
+                print("b");
                 dropButtons[i].SetActive(true);
                 pkgInfos[i] = slots.Find("slot" + i).Find("pkgInfo").GetComponent<TextMeshProUGUI>();
                 pkgInfos[i].text = PubVar.packages[i].ToString();

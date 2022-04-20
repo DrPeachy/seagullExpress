@@ -37,7 +37,6 @@ public class pkgReference : MonoBehaviour
         if(_playerAction.PlayerControl.Interact.IsPressed()){
             RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.forward, 0.5f);
             if(hit.collider != null && hit.collider.CompareTag("DeliveryPoint") && hit.collider.name == location){
-                print("a");
                 PubVar.packages[index].state = 3;
                 GetComponent<pkgReference>().enabled = false;
             }
