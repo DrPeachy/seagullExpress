@@ -43,12 +43,16 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector2 moveInput = _playerAction.PlayerControl.Move.ReadValue<Vector2>();
-        if(_rig.gravityScale == 0){
+        if(_rig.gravityScale == 0){ // top down control
+            // on controller, set velocity
             if(moveInput != Vector2.zero) _rig.velocity = moveInput * PubVar.actualSpeed;
+            // afk, speed down
             if(moveInput == Vector2.zero) _rig.velocity = new Vector2(Mathf.Lerp(_rig.velocity.x,0,Time.deltaTime), Mathf.Lerp(_rig.velocity.y,0,Time.deltaTime));
+            // smooth rotation
             float angle = Mathf.LerpAngle(_rig.rotation, Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg - 90f, Time.deltaTime * 8);
+            // set rotation
             if(moveInput != Vector2.zero) _rig.rotation = angle;
-        }else{
+        }else{ // platformer control
             _rig.velocity = new Vector2(moveInput.x, 0) * PubVar.actualSpeed;
             if(moveInput != Vector2.zero) transform.localScale = new Vector2((moveInput.x > 0) ? 1:-1, 1);
         }
