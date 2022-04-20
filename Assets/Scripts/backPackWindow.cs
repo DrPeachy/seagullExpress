@@ -64,7 +64,7 @@ public class backPackWindow : MonoBehaviour
 
     public void Drop(int x){
         PubVar.packages[x].state = 2;
-        GameObject newPkg = Instantiate(pkgPrefab.gameObject, _player.transform.position, Quaternion.Euler(0,0,0));
+        GameObject newPkg = Instantiate(pkgPrefab.gameObject, _player.transform.position + new Vector3(0.5f,0,0), Quaternion.Euler(0,0,0));
         newPkg.name = PubVar.packages[x].id + "";
         pkgInfos[x].text = "";
         dropButtons[x].SetActive(false);
