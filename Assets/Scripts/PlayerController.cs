@@ -72,7 +72,9 @@ public class PlayerController : MonoBehaviour
         _playerAction.Disable();
         for(int i = 0; i < PubVar.pkgNum; i++){
             if(PubVar.packages[i] != null && PubVar.packages[i].state == 1){
-                PubVar.packages[i].getHit( (PubVar.packages[i].weight/500) * 10);
+
+                PubVar.packages[i].getHit( (1- (PubVar.packages[i].weight/500f)) * 10f);
+                print(PubVar.packages[i].integrity+ "  " +(PubVar.packages[i].weight/500) * 10);
             }
         }
         yield return new WaitForSeconds(obstacleCooldown);

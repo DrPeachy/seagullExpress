@@ -9,6 +9,7 @@ public class pkgSelectWindow : MonoBehaviour
     //==============pkg generator=============
     public Vector3 firstPos;
     public GameObject pkgPrefab;
+    public Behaviour pkgUI;
 
     private Transform slots;
 
@@ -16,9 +17,14 @@ public class pkgSelectWindow : MonoBehaviour
     private void Start() {
         slots = transform.Find("slots");
         pkgInfos = new TextMeshProUGUI[6];
-        setPkgNum();
-        PubVar.packages = PkgRandomize();
-        displayPkgs(PubVar.packages, pkgInfos);
+        if(PubVar.packages == null){
+            setPkgNum();
+            PubVar.packages = PkgRandomize();
+            displayPkgs(PubVar.packages, pkgInfos);
+        }else{
+            GetComponent<pkgSelectWindow>().enabled = false;
+            pkgUI.enabled = false;
+        }
         gameObject.SetActive(false);
     }
     private void OnEnable() {
@@ -85,6 +91,7 @@ public class pkgSelectWindow : MonoBehaviour
                 newPkg.name = PubVar.packages[i].id + "";
                 // drop packages on the floor
                 PubVar.packages[i].state = 2;
+                
             }
         }
     }

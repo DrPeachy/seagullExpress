@@ -43,8 +43,9 @@ public class pkgReference : MonoBehaviour
             if(hit.collider != null && hit.collider.CompareTag("Player")){
                 PubVar.packages[index].state = 1;
                 PubVar.playerWeight += PubVar.packages[index].weight;
-                PubVar.actualSpeed = PubVar.movSpeed * (1- (PubVar.playerWeight/(PubVar.pkgNum * 500)) );
+                PubVar.actualSpeed = PubVar.movSpeed * (1- (PubVar.playerWeight/(PubVar.pkgNum * 400f)) );
                 Destroy(gameObject);
+                
             }
         }
     }

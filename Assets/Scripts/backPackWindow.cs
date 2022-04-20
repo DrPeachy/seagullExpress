@@ -36,11 +36,7 @@ public class backPackWindow : MonoBehaviour
     private void OnDisable() {
         //_playerAction.Disable();
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     private void FixedUpdate() {
       
@@ -53,28 +49,26 @@ public class backPackWindow : MonoBehaviour
                 slots.Find("slot" + i).gameObject.SetActive(false);
                 continue;
             }
-            print(PubVar.packages[i].state+"");
             if(PubVar.packages[i].state == 1){
-                print("b");
                 dropButtons[i].SetActive(true);
                 pkgInfos[i] = slots.Find("slot" + i).Find("pkgInfo").GetComponent<TextMeshProUGUI>();
-                pkgInfos[i].text = PubVar.packages[i].ToString();
-                //counter ++;
+                pkgInfos[i].text = PubVar.packages[i].BackpackString();
             }
         }
     }
 
     public void Drop(int x){
         PubVar.packages[x].state = 2;
-        PubVar.playerWeight -= PubVar.packages[x].weight;
-        PubVar.actualSpeed = PubVar.movSpeed * (1- (PubVar.playerWeight/(PubVar.pkgNum * 500)) );
+        setWeightSpd(x);
         GameObject newPkg = Instantiate(pkgPrefab.gameObject, _player.transform.position + new Vector3(0.5f,0,0), Quaternion.Euler(0,0,0));
         newPkg.name = PubVar.packages[x].id + "";
         pkgInfos[x].text = "";
         dropButtons[x].SetActive(false);
+        DontDestroyOnLoad(newPkg);
     }
 
-    public void ClearBackPack(){
-    
+    public void setWeightSpd(int x){
+        PubVar.playerWeight -= PubVar.packages[x].weight;
+        PubVar.actualSpeed = PubVar.movSpeed * (1- (PubVar.playerWeight/(PubVar.pkgNum * 450f)) );   
     }
 }

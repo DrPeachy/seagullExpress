@@ -42,6 +42,17 @@ public class package
                         + (checkAvailable()? "\navailable":"\nnot available");
         }
 
+        public string BackpackString(){
+            return "package id: " + id
+                        + "\nname: " + name
+                        + "\nweight: " + weight
+                        + "\n\nto: " + to
+                        + "\naddress: " + address
+                        + "\n\nship before: " + due
+                        + "\nintegrity: " + integrity + "%";
+                        
+        }
+
 
         public bool checkAvailable(string a = null){
             if(requirement == null) return true;

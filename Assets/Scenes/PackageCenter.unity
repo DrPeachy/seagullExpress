@@ -3856,6 +3856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstPos: {x: -6, y: 0.8, z: 0}
   pkgPrefab: {fileID: 4248177199558127834, guid: d8e679311ea1a424385373d68857a649, type: 3}
+  pkgUI: {fileID: 1553475281}
 --- !u!1 &1023785860
 GameObject:
   m_ObjectHideFlags: 0
