@@ -22,7 +22,6 @@ public class pkgSelectWindow : MonoBehaviour
             PubVar.packages = PkgRandomize();
             displayPkgs(PubVar.packages, pkgInfos);
         }else{
-            GetComponent<pkgSelectWindow>().enabled = false;
             pkgUI.enabled = false;
         }
         gameObject.SetActive(false);
@@ -64,7 +63,7 @@ public class pkgSelectWindow : MonoBehaviour
         //Transform slots = transform.Find("slots");
         for(int i = 0; i < PubVar.pkgNum; i++){
             if(PubVar.packages[i].state == 0 && slots.Find("slot" + i).Find("select").GetComponent<Toggle>().isOn){
-                PubVar.packages[i].state = 1;
+                PubVar.packages[i].state = 2;
             }
         }
     }
@@ -86,12 +85,10 @@ public class pkgSelectWindow : MonoBehaviour
     public void generatePkg(){
         Vector3 dif = new Vector3(3, 0, 0);
         for(int i = 0; i < PubVar.pkgNum; i++){
-            if(PubVar.packages[i].state == 1){
+            if(PubVar.packages[i].state == 2){
+                // drop packages on the floor
                 GameObject newPkg = Instantiate(pkgPrefab, firstPos + i * dif, Quaternion.Euler(0, 0, 0));
                 newPkg.name = PubVar.packages[i].id + "";
-                // drop packages on the floor
-                PubVar.packages[i].state = 2;
-                
             }
         }
     }
