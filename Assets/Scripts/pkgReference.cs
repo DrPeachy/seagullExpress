@@ -41,12 +41,10 @@ public class pkgReference : MonoBehaviour
                 GetComponent<pkgReference>().enabled = false;
             }
             if(hit.collider != null && hit.collider.CompareTag("Player")){
-                foreach(var i in PubVar.packages){
-                    if((i.id + "") == transform.name){
-                        i.state = 1;
-                        Destroy(gameObject);
-                    }
-                }
+                PubVar.packages[index].state = 1;
+                PubVar.playerWeight += PubVar.packages[index].weight;
+                PubVar.actualSpeed = PubVar.movSpeed * (1- (PubVar.playerWeight/(PubVar.pkgNum * 500)) );
+                Destroy(gameObject);
             }
         }
     }

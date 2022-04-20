@@ -1721,10 +1721,6 @@ PrefabInstance:
       propertyPath: BagUI
       value: 
       objectReference: {fileID: 684130933}
-    - target: {fileID: 4568969442357525249, guid: e088b825d8d744d40888621bd89e217e, type: 3}
-      propertyPath: m_AngularDrag
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4568969442357525251, guid: e088b825d8d744d40888621bd89e217e, type: 3}
       propertyPath: m_RootOrder
       value: 5

@@ -8,9 +8,9 @@ public static class PubVar
     public static int money;
     public static int fatigue;
     public static int rating;
-    public static float flySpd;
-    public static float walkSpd;
-    public static int playerWeight;
+    public static float movSpeed = 5;
+    public static float actualSpeed = movSpeed;
+    public static int playerWeight = 100;
     public static int playerLevel = 1;
     
 

@@ -66,6 +66,8 @@ public class backPackWindow : MonoBehaviour
 
     public void Drop(int x){
         PubVar.packages[x].state = 2;
+        PubVar.playerWeight -= PubVar.packages[x].weight;
+        PubVar.actualSpeed = PubVar.movSpeed * (1- (PubVar.playerWeight/(PubVar.pkgNum * 500)) );
         GameObject newPkg = Instantiate(pkgPrefab.gameObject, _player.transform.position + new Vector3(0.5f,0,0), Quaternion.Euler(0,0,0));
         newPkg.name = PubVar.packages[x].id + "";
         pkgInfos[x].text = "";
