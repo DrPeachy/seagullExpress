@@ -18,7 +18,7 @@ public class package
         public string dropScene {get;set;}
 
     /*
-        -1: not avaible, 0: avaible, 1: delivering, 2: droped, 3: delivered
+        -1: not avaible, 0: avaible, 1: delivering, 2: droped, 3: delivered, 4: broken
     */
         public package(string name, int anId, int aState, string aTo, string anAddress, float aDue, int aIncome, int aWeight){
             this.name =name;
@@ -73,6 +73,10 @@ public class package
         }
         
         public void getHit(float num){
-            integrity -= num;
+            if(integrity > 0) integrity -= num;
+            if(integrity <= 0){
+                integrity = 0;
+                state = 4;  // set broken
+            }
         }
 }
