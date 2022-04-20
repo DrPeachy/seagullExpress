@@ -16,7 +16,7 @@ public class package
         public float integrity;
 
     /*
-        -1: not avaible, 0: avaible, 1: delivering, 2: delivered
+        -1: not avaible, 0: avaible, 1: delivering, 2: droped, 3: delivered
     */
         public package(string name, int anId, int aState, string aTo, string anAddress, float aDue, int aIncome, int aWeight){
             this.name =name;
@@ -52,7 +52,11 @@ public class package
         private void setRequirement(){
             if(due < 120 && income > 400 && weight > 400) requirement = "plane";
             else if(due < 240 && income > 300 && weight > 300) requirement = "jetpack";
-            else requirement = null;
+            else{
+                this.state = 0;
+                requirement = null;
+            }
+
         }
         
         public void getHit(float num){

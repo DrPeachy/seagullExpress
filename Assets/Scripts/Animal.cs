@@ -24,7 +24,7 @@ public class Animal
     }
     
     public package orderPkg(){
-        package pkg = new package(wishlist[Random.Range(0, wishlist.Length)],Random.Range(0, 1000), 0, name,
+        package pkg = new package(wishlist[Random.Range(0, wishlist.Length)],Random.Range(0, 1000), -1, name,
                         address, Random.Range(60, 500), Random.Range(60, 500), Random.Range(60, 500));
 
         return pkg;

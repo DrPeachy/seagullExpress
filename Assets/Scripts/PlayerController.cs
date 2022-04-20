@@ -8,10 +8,15 @@ public class PlayerController : MonoBehaviour
     private PlayerAction _playerAction;
     public float movSpeed;
     private Rigidbody2D _rig;
+    public GameObject BagUI;
+
+    private backPackWindow bagCode;
 
     private void Awake() {
+        bagCode = BagUI.GetComponent<backPackWindow>();
         _playerAction = new PlayerAction();
         _rig = GetComponent<Rigidbody2D>();
+
     }
 
 
@@ -25,7 +30,11 @@ public class PlayerController : MonoBehaviour
     
 
     private void FixedUpdate() {
-
+        if(_playerAction.PlayerControl.OpenBag.IsPressed()){
+            BagUI.SetActive(true);
+            //bagCode.ClearBackPack();
+            bagCode.SetBackpack();
+        }
     }
 
 

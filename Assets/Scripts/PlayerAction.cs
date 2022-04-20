@@ -44,6 +44,15 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenBag"",
+                    ""type"": ""Button"",
+                    ""id"": ""ebaccddf-ed02-40ab-8268-480088d39c44"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -68,6 +77,17 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fc2eb5ea-334d-41cc-86d2-386e44b359e5"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenBag"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -78,6 +98,7 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
         m_PlayerControl = asset.FindActionMap("PlayerControl", throwIfNotFound: true);
         m_PlayerControl_Move = m_PlayerControl.FindAction("Move", throwIfNotFound: true);
         m_PlayerControl_Interact = m_PlayerControl.FindAction("Interact", throwIfNotFound: true);
+        m_PlayerControl_OpenBag = m_PlayerControl.FindAction("OpenBag", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -139,12 +160,14 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
     private IPlayerControlActions m_PlayerControlActionsCallbackInterface;
     private readonly InputAction m_PlayerControl_Move;
     private readonly InputAction m_PlayerControl_Interact;
+    private readonly InputAction m_PlayerControl_OpenBag;
     public struct PlayerControlActions
     {
         private @PlayerAction m_Wrapper;
         public PlayerControlActions(@PlayerAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_PlayerControl_Move;
         public InputAction @Interact => m_Wrapper.m_PlayerControl_Interact;
+        public InputAction @OpenBag => m_Wrapper.m_PlayerControl_OpenBag;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControl; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -160,6 +183,9 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                 @Interact.started -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnInteract;
+                @OpenBag.started -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnOpenBag;
+                @OpenBag.performed -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnOpenBag;
+                @OpenBag.canceled -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnOpenBag;
             }
             m_Wrapper.m_PlayerControlActionsCallbackInterface = instance;
             if (instance != null)
@@ -170,6 +196,9 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @OpenBag.started += instance.OnOpenBag;
+                @OpenBag.performed += instance.OnOpenBag;
+                @OpenBag.canceled += instance.OnOpenBag;
             }
         }
     }
@@ -178,5 +207,6 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnOpenBag(InputAction.CallbackContext context);
     }
 }

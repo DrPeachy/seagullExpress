@@ -5,16 +5,21 @@ using TMPro;
 using UnityEngine.UI;
 public class pkgSelectWindow : MonoBehaviour
 {
-    private TextMeshProUGUI[] pkgInfos= new TextMeshProUGUI[6];
+    private TextMeshProUGUI[] pkgInfos;
     //==============pkg generator=============
     public Vector3 firstPos;
     public GameObject pkgPrefab;
 
+    private Transform slots;
+
+
     private void Start() {
-        PubVar.pkgNum = PubVar.playerLevel + 3;
+        slots = transform.Find("slots");
+        pkgInfos = new TextMeshProUGUI[6];
         setPkgNum();
-        PubVar.packages = pkgRandomize();
+        PubVar.packages = PkgRandomize();
         displayPkgs(PubVar.packages, pkgInfos);
+        gameObject.SetActive(false);
     }
     private void OnEnable() {
              
@@ -24,7 +29,7 @@ public class pkgSelectWindow : MonoBehaviour
         
     }
  
-    package[] pkgRandomize(){
+    package[] PkgRandomize(){
         package[] packages = new package[PubVar.pkgNum];
         int i;
         // available package
@@ -35,7 +40,7 @@ public class pkgSelectWindow : MonoBehaviour
     }
 
     void displayPkgs(package[] pkgs, TextMeshProUGUI[] texts){
-        Transform slots = transform.Find("slots");
+        //Transform slots = transform.Find("slots");
         for(int i = 0; i < 6; i++){
             if(PubVar.pkgNum <= i){
                 slots.Find("slot" + i).gameObject.SetActive(false);
@@ -49,6 +54,14 @@ public class pkgSelectWindow : MonoBehaviour
         }
     }
 
+    public void checkSelected(){
+        //Transform slots = transform.Find("slots");
+        for(int i = 0; i < PubVar.pkgNum; i++){
+            if(PubVar.packages[i].state == 0 && slots.Find("slot" + i).Find("select").GetComponent<Toggle>().isOn){
+                PubVar.packages[i].state = 1;
+            }
+        }
+    }
 
     void setPkgNum(){
         switch(PubVar.playerLevel){
@@ -67,7 +80,12 @@ public class pkgSelectWindow : MonoBehaviour
     public void generatePkg(){
         Vector3 dif = new Vector3(3, 0, 0);
         for(int i = 0; i < PubVar.pkgNum; i++){
-            Instantiate(pkgPrefab, firstPos + i * dif, Quaternion.Euler(0, 0, 0));
+            if(PubVar.packages[i].state == 1){
+                GameObject newPkg = Instantiate(pkgPrefab, firstPos + i * dif, Quaternion.Euler(0, 0, 0));
+                newPkg.name = PubVar.packages[i].id + "";
+                // drop packages on the floor
+                PubVar.packages[i].state = 2;
+            }
         }
     }
 }
