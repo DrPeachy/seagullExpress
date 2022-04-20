@@ -20,7 +20,7 @@ public class pkgReference : MonoBehaviour
     private void Update() {
         if(_playerAction.PlayerControl.Interact.IsPressed()){
             RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.forward, 0.5f);
-            if(hit.collider.CompareTag("Player")){
+            if(hit.collider != null && hit.collider.CompareTag("Player")){
                 foreach(var i in PubVar.packages){
                     if((i.id + "") == transform.name){
                         i.state = 1;

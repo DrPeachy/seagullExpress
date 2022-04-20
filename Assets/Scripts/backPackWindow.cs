@@ -21,6 +21,7 @@ public class backPackWindow : MonoBehaviour
         slots = transform.Find("slots");
         for(int i = 0; i < 6; i++){
             dropButtons[i] = slots.Find("slot" + i).Find("drop").gameObject;
+            dropButtons[i].SetActive(false);
         }
         _player = GameObject.FindGameObjectWithTag("Player");
         pkgInfos = new TextMeshProUGUI[6];
@@ -53,6 +54,7 @@ public class backPackWindow : MonoBehaviour
                 continue;
             }
             if(PubVar.packages[i].state == 1){
+                dropButtons[i].SetActive(true);
                 pkgInfos[i] = slots.Find("slot" + i).Find("pkgInfo").GetComponent<TextMeshProUGUI>();
                 pkgInfos[i].text = PubVar.packages[i].ToString();
                 //counter ++;
@@ -65,7 +67,7 @@ public class backPackWindow : MonoBehaviour
         GameObject newPkg = Instantiate(pkgPrefab.gameObject, _player.transform.position, Quaternion.Euler(0,0,0));
         newPkg.name = PubVar.packages[x].id + "";
         pkgInfos[x].text = "";
-        slots.Find("slot" + x).Find("drop").gameObject.SetActive(false);
+        dropButtons[x].SetActive(false);
     }
 
     public void ClearBackPack(){
