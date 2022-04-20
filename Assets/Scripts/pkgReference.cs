@@ -28,6 +28,7 @@ public class pkgReference : MonoBehaviour
             }
             index++;
         }
+        PubVar.packages[index].dropPos = transform.position;
         if(true){
             RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.forward, 0.5f);
 

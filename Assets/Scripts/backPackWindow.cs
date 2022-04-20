@@ -64,7 +64,6 @@ public class backPackWindow : MonoBehaviour
         newPkg.name = PubVar.packages[x].id + "";
         pkgInfos[x].text = "";
         dropButtons[x].SetActive(false);
-        DontDestroyOnLoad(newPkg);
     }
 
     public void setWeightSpd(int x){

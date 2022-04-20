@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DeliveryPoint
   - Obstacle
+  - Package
   layers:
   - Default
   - TransparentFX

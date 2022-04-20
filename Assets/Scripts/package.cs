@@ -13,7 +13,9 @@ public class package
         public int income {get;set;}
         public int weight {get;set;}
         public string requirement {get;set;}
-        public float integrity;
+        public float integrity {get;set;}
+        public Vector3 dropPos {get;set;}
+        public string dropScene {get;set;}
 
     /*
         -1: not avaible, 0: avaible, 1: delivering, 2: droped, 3: delivered
