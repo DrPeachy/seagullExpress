@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class deliveryman : MonoBehaviour
-{
+{   
+    /*
     public GameObject destination;
     public float speed_const = 20;
     public float speed_limit = 20;
+    public LayerMask obstacles;
     Vector2 direction;
     Rigidbody2D _rb;
     bool arrived = false;
@@ -22,7 +24,10 @@ public class deliveryman : MonoBehaviour
 
 
         // detect upcoming obstacle
-        _hit = Physics2D.Raycast(transform.position, )
+        _hit = Physics2D.Raycast(transform.position, direction, 10, obstacles);
+        if(_hit.collider != null){
+
+        }
 
 
         if(Vector2.Distance(destination.transform.position, transform.position) < .5f){
@@ -37,4 +42,9 @@ public class deliveryman : MonoBehaviour
         }
         
     }
+
+    void avoiding_obstacles(GameObject the_obstacle){
+        Bounds temp_bounds = 
+    }
+    */
 }
