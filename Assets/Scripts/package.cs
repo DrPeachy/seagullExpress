@@ -55,6 +55,25 @@ public class package
                         
         }
 
+        public string GetState() {
+            switch (state) {
+                case -1: return "Not Available";
+                case  0: return "Available";
+                case  1: return "Delivering";
+                case  2: return "Dropped";
+                case  3: return "Delivered";
+                case  4: return "Broken";
+            }
+        }
+
+        public string ResultString() {
+            string resStr = "Package ID: " + id
+                            + "\nName: " + name
+                            + "\nStatus: " + GetState()
+                            + "\nIncome: " + (income * (integrity/100)); 
+            return resStr;
+        }
+
 
         public bool checkAvailable(string a = null){
             if(requirement == null) return true;
