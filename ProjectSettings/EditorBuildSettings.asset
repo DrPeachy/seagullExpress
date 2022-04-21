@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MountainTop.unity
     guid: a6b2614c973583143a49d4062dc532d9
+  - enabled: 1
+    path: Assets/Scenes/DeliveryEnd.unity
+    guid: aca80d3778511ed4c9496f89c5287431
   m_configObjects: {}

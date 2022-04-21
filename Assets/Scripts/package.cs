@@ -63,6 +63,7 @@ public class package
                 case  2: return "Dropped";
                 case  3: return "Delivered";
                 case  4: return "Broken";
+                default: return "";
             }
         }
 
