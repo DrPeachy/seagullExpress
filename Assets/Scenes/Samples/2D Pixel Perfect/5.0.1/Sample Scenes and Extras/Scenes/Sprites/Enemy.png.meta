@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: fc6d5f2018b324fcb8b63dd9f88d39e7
+guid: ab7826c35d95f48c78e5464b3c85772a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -23,6 +23,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -32,8 +34,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -50,13 +52,17 @@ TextureImporter:
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: 0.37
+  spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -86,28 +92,16 @@ TextureImporter:
     serializedVersion: 2
     sprites: []
     outline: []
-    physicsShape:
-    - - {x: 9, y: 14}
-      - {x: 7, y: 16}
-      - {x: -5, y: 16}
-      - {x: -11, y: 13}
-      - {x: -13, y: 4}
-      - {x: -13, y: -6}
-      - {x: -11, y: -15}
-      - {x: -10, y: -16}
-      - {x: 11, y: -16}
-      - {x: 13, y: -15}
-      - {x: 13, y: -14}
-      - {x: 12, y: -9}
-      - {x: 12, y: 0}
+    physicsShape: []
     bones: []
-    spriteID: 551779bf5e29c4d649cef5e4382384b3
+    spriteID: 8ac580ca9e9494dcbba186d77211d718
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
