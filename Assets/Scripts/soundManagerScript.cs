@@ -7,6 +7,7 @@ public class soundManagerScript : MonoBehaviour
     public static AudioClip boxPick;
     public static AudioClip clickUI;
     public static AudioClip hitCloud;
+    public static AudioClip openBag;
 
     static AudioSource audioSrc;
 
@@ -17,6 +18,8 @@ public class soundManagerScript : MonoBehaviour
         clickUI = Resources.Load<AudioClip> ("clickUI");
 
         hitCloud = Resources.Load<AudioClip> ("hitCloud");
+
+        openBag = Resources.Load<AudioClip> ("openBag");
 
         audioSrc = GetComponent<AudioSource>();
     }
@@ -31,6 +34,9 @@ public class soundManagerScript : MonoBehaviour
         }
         else if (clip == "hitCloud") {
             audioSrc.PlayOneShot(hitCloud);
+        }
+        else if (clip == "openBag") {
+            audioSrc.PlayOneShot(openBag);
         }
     }
 }

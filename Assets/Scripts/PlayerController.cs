@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
             BagUI.SetActive(true);
             //bagCode.ClearBackPack();
             bagCode.SetBackpack();
+            soundManagerScript.playSound("openBag");   // NEED TO BE FIXED
         }
     }
 
@@ -61,7 +62,6 @@ public class PlayerController : MonoBehaviour
             _rig.velocity = new Vector2(moveInput.x, 0) * PubVar.actualSpeed;
             if(moveInput != Vector2.zero) transform.localScale = new Vector2((moveInput.x > 0) ? 1:-1, 1);
         }
-        
     }
 
 
