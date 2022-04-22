@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
     private float obstacleCooldown = 1f;
 
+    public Animator animator;
+
     private void Awake() {
         bagCode = BagUI.GetComponent<backPackWindow>();
         _playerAction = new PlayerAction();
@@ -41,7 +43,7 @@ public class PlayerController : MonoBehaviour
             BagUI.SetActive(true);
             //bagCode.ClearBackPack();
             bagCode.SetBackpack();
-            soundManagerScript.playSound("openBag");   // NEED TO BE FIXED
+            //soundManagerScript.playSound("openBag");   // NEED TO BE FIXED
         }
     }
 
@@ -52,6 +54,7 @@ public class PlayerController : MonoBehaviour
         if(_rig.gravityScale == 0){ // top down control
             // on controller, set velocity
             if(moveInput != Vector2.zero) _rig.velocity = moveInput * PubVar.actualSpeed;
+            // animator.SetFloat("Speed", Mathf.Abs(PubVar.actualSpeed));  testing animator
             // afk, speed down
             if(moveInput == Vector2.zero) _rig.velocity = new Vector2(Mathf.Lerp(_rig.velocity.x,0,Time.deltaTime), Mathf.Lerp(_rig.velocity.y,0,Time.deltaTime));
             // smooth rotation
