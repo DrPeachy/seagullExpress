@@ -3159,7 +3159,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BagUI: {fileID: 1455418900}
-  animator: {fileID: 799843807}
 --- !u!50 &799843809
 Rigidbody2D:
   serializedVersion: 4

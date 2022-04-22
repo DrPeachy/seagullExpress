@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     private float obstacleCooldown = 1f;
 
-    public Animator animator;
+    // public Animator animator;
 
     private void Awake() {
         bagCode = BagUI.GetComponent<backPackWindow>();
