@@ -1779,7 +1779,7 @@ RectTransform:
   - {fileID: 787859631}
   - {fileID: 355816764}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2992,7 +2992,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1330273019
 GameObject:
@@ -4066,6 +4066,14 @@ PrefabInstance:
     - target: {fileID: 1720251421644501990, guid: 75651d16281955a48b26754e187a167f, type: 3}
       propertyPath: m_Name
       value: seagullPlatformer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720251421644501990, guid: 75651d16281955a48b26754e187a167f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720251421644501990, guid: 75651d16281955a48b26754e187a167f, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1720251421644501991, guid: 75651d16281955a48b26754e187a167f, type: 3}
       propertyPath: m_SortingLayer
