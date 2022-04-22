@@ -12,6 +12,7 @@ public class backPackWindow : MonoBehaviour
     private GameObject _player;
     private GameObject[] dropButtons = new GameObject[6];
 
+
     //private PlayerAction _playerAction;
 
     private void Awake() {

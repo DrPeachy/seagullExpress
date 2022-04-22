@@ -23,10 +23,10 @@ public class SceneLoader : MonoBehaviour
 
 
     private void FixedUpdate() {
-        if(true){
+        if(_playerAction.PlayerControl.Interact.IsPressed()){
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right);
             Debug.DrawRay(transform.position , Vector2.right, Color.red);
-            if(hit.collider.CompareTag("Player") && _playerAction.PlayerControl.Interact.IsPressed()){
+            if(hit.collider.CompareTag("Player")){
                 SceneManager.LoadScene(sceneName);
                     
             }
