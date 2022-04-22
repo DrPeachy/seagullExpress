@@ -5,12 +5,15 @@ using UnityEngine;
 public class soundManagerScript : MonoBehaviour
 {
     public static AudioClip boxPick;
+    public static AudioClip clickUI;
 
     static AudioSource audioSrc;
 
     void Start()
     {
         boxPick = Resources.Load<AudioClip> ("boxPick");
+
+        clickUI = Resources.Load<AudioClip> ("clickUI");
 
         audioSrc = GetComponent<AudioSource>();
     }
@@ -19,6 +22,9 @@ public class soundManagerScript : MonoBehaviour
     {
         if (clip == "boxPick") {
             audioSrc.PlayOneShot(boxPick);
+        }
+        else if (clip == "clickUI") {
+            audioSrc.PlayOneShot(clickUI);
         }
     }
 }
