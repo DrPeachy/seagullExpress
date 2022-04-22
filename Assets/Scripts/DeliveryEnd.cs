@@ -6,6 +6,7 @@ using TMPro;
 public class DeliveryEnd : MonoBehaviour
 {
     public TextMeshProUGUI resultsUI;
+    public float textSpeed = 0.05f;
     string results = "";
     int totalPay = 0;
 
@@ -24,11 +25,20 @@ public class DeliveryEnd : MonoBehaviour
             results = "No Packages Picked Up\n";
         }
         results += " \nTotal Pay: $" + totalPay;
+
+        // StartCoroutine(printText(results));
     }
 
     void Update()
     {
         resultsUI.text = results;
+    }
+
+    IEnumerator printText (string text) {
+        foreach (char c in text) {
+            resultsUI.text += c;
+            yield return new WaitForSeconds(textSpeed);
+        }
     }
 
     private void OnDestroy() {
