@@ -52,6 +52,7 @@ public class pkgReference : MonoBehaviour
                 checkAllPkg();
             }
             if(hit.collider != null && hit.collider.CompareTag("Player")){           // pick up pkg
+                soundManagerScript.playSound("boxPick");
                 PubVar.packages[index].state = 1;
                 PubVar.playerWeight += PubVar.packages[index].weight;
                 PubVar.actualSpeed = PubVar.movSpeed * (1- (PubVar.playerWeight/(PubVar.pkgNum * 400f)) );
