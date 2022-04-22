@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 1720251421644501976}
   - component: {fileID: 1720251421644501979}
   - component: {fileID: 1720251421644501978}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: seagullPlatformer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 288748643
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -102618969, guid: b519efcc98d8c7f4f9d1c03881ded6a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -154,7 +154,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1720251421644501978
 MonoBehaviour:
   m_ObjectHideFlags: 0

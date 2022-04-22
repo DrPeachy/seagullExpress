@@ -3884,6 +3884,10 @@ PrefabInstance:
       propertyPath: BagUI
       value: 
       objectReference: {fileID: 355816763}
+    - target: {fileID: 1720251421644501979, guid: 75651d16281955a48b26754e187a167f, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1720251421644501988, guid: 75651d16281955a48b26754e187a167f, type: 3}
       propertyPath: m_RootOrder
       value: 1
