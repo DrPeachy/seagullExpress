@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     private float obstacleCooldown = 1f;
 
-    // public Animator animator;
+    public Animator animator;
 
     private void Awake() {
         bagCode = BagUI.GetComponent<backPackWindow>();
@@ -54,7 +54,6 @@ public class PlayerController : MonoBehaviour
         if(_rig.gravityScale == 0){ // top down control
             // on controller, set velocity
             if(moveInput != Vector2.zero) _rig.velocity = moveInput * PubVar.actualSpeed;
-            // animator.SetFloat("Speed", Mathf.Abs(PubVar.actualSpeed));  testing animator
             // afk, speed down
             if(moveInput == Vector2.zero) _rig.velocity = new Vector2(Mathf.Lerp(_rig.velocity.x,0,Time.deltaTime), Mathf.Lerp(_rig.velocity.y,0,Time.deltaTime));
             // smooth rotation
@@ -63,6 +62,7 @@ public class PlayerController : MonoBehaviour
             if(moveInput != Vector2.zero) _rig.rotation = angle;
         }else{ // platformer control
             _rig.velocity = new Vector2(moveInput.x, 0) * PubVar.actualSpeed;
+            animator.SetFloat("Speed", Mathf.Abs(moveInput.x * PubVar.actualSpeed));  //testing animator
             if(moveInput != Vector2.zero) transform.localScale = new Vector2((moveInput.x > 0) ? 1:-1, 1);
         }
     }
