@@ -4,47 +4,49 @@ using UnityEngine;
 
 public class deliveryman : MonoBehaviour
 {   
-    /*
-    public GameObject destination;
+    
     public float speed_const = 20;
-    public float speed_limit = 20;
+    public float speed_limit = 5;
     public LayerMask obstacles;
     Vector2 direction;
     Rigidbody2D _rb;
-    bool arrived = false;
+    Collider2D _coll;
+    Camera _cam;
+    bool been_in_sight = false;
+    bool ready_to_destory = false;
     RaycastHit2D _hit;
+    float start_time;
     private void Start() {
-        _rb=GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
+        _coll = GetComponent<Collider2D>();
+        _cam = Camera.main;
     }
 
     private void Update() {
-        // get direction towards the destination
-        direction = (destination.transform.position - transform.position).normalized;
-        transform.up = direction;
-
-
-        // detect upcoming obstacle
-        _hit = Physics2D.Raycast(transform.position, direction, 10, obstacles);
-        if(_hit.collider != null){
-
+        _hit = Physics2D.BoxCast(transform.position, _coll.bounds.size, 0, transform.up, 5f, obstacles);
+        print(_hit);
+        if(_hit){
+            _rb.velocity = _rb.velocity * 0.5f;
+            transform.up = transform.up.Rotate(2f);
+        } else {
+            if(_rb.velocity.magnitude < speed_limit){
+                _rb.AddForce(transform.up * speed_const);
+            }
         }
-
-
-        if(Vector2.Distance(destination.transform.position, transform.position) < .5f){
-            arrived = true;
+        if(ready_to_destory){
+            if(Time.time - start_time >5f){
+                Destroy(gameObject);
+            }
         }
-        
-        if(!arrived){
-            if(_rb.velocity.magnitude < speed_limit) _rb.AddForce(direction * speed_const);
-        }
-        else{
-            _rb.velocity = Vector2.zero;
-        }
-        
     }
 
-    void avoiding_obstacles(GameObject the_obstacle){
-        Bounds temp_bounds = 
+    private void OnBecameVisible() {
+        been_in_sight = true;
+        ready_to_destory = false;
     }
-    */
+
+    private void OnBecameInvisible() {
+        start_time = Time.time;
+        ready_to_destory = been_in_sight;
+    }    
 }
