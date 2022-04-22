@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class pkgSelectWindow : MonoBehaviour
 {
     private TextMeshProUGUI[] pkgInfos;
@@ -60,12 +61,15 @@ public class pkgSelectWindow : MonoBehaviour
     }
 
     public void checkSelected(){
+        int flag = 0;
         //Transform slots = transform.Find("slots");
         for(int i = 0; i < PubVar.pkgNum; i++){
             if(PubVar.packages[i].state == 0 && slots.Find("slot" + i).Find("select").GetComponent<Toggle>().isOn){
                 PubVar.packages[i].state = 2;
+                flag = 1;
             }
         }
+        if(flag == 0) SceneManager.LoadScene("DeliveryEnd");
     }
 
     void setPkgNum(){   // set pkg number limit due to level
