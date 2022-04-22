@@ -24,8 +24,14 @@ public class Animal
     }
     
     public package orderPkg(){
-        package pkg = new package(wishlist[Random.Range(0, wishlist.Length)],Random.Range(0, 1000), -1, name,
-                        address, Random.Range(60, 500), Random.Range(60, 500), Random.Range(60, 500));
+        package pkg = new package(wishlist[Random.Range(0, wishlist.Length)],   //name
+                                            Random.Range(1000,10000),           //id
+                                            -1,                                 //state
+                                            name,
+                                            address, 
+                                            new StaticTime(Random.Range(10,25), Random.Range(0,61)), //StaticTime
+                                            Random.Range(60, 500),              //income
+                                            Random.Range(60, 500));             //weight
 
         return pkg;
     }

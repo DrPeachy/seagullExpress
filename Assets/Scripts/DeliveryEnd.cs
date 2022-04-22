@@ -13,7 +13,7 @@ public class DeliveryEnd : MonoBehaviour
     {   
         int pkgPickedUp = 0;
         foreach (package p in PubVar.packages) {
-            if (p.GetState() == "Delivered" || p.GetState() == "Broken") {
+            if (p.GetState() == "Delivered" || p.GetState() == "Broken" || p.GetState() == "Late") {
                 pkgPickedUp += 1;
                 totalPay += p.Results(ref results);
                 results += "\n";
@@ -29,5 +29,9 @@ public class DeliveryEnd : MonoBehaviour
     void Update()
     {
         resultsUI.text = results;
+    }
+
+    private void OnDestroy() {
+        PubVar.packages = null;
     }
 }

@@ -9,7 +9,7 @@ public class package
         public int state {get;set;}
         public string to {get;set;}
         public string address {get;set;}
-        public float due {get;set;}
+        public StaticTime due {get;set;}
         public int income {get;set;}
         public int weight {get;set;}
         public string requirement {get;set;}
@@ -18,9 +18,9 @@ public class package
         public string dropScene {get;set;}
 
     /*
-        -1: not avaible, 0: avaible, 1: delivering, 2: dropped, 3: delivered, 4: broken
+        -1: not avaible, 0: avaible, 1: delivering, 2: dropped, 3: delivered, 4: broken, 5: past due
     */
-        public package(string name, int anId, int aState, string aTo, string anAddress, float aDue, int aIncome, int aWeight){
+        public package(string name, int anId, int aState, string aTo, string anAddress, StaticTime aDue, int aIncome, int aWeight){
             this.name =name;
             id = anId;
             state = aState;
@@ -62,8 +62,8 @@ public class package
         }
 
         private void setRequirement(){
-            if(due < 120 && income > 400 && weight > 400) requirement = "plane";
-            else if(due < 240 && income > 300 && weight > 300) requirement = "jetpack";
+            if(due.hr < 13 && income > 400 && weight > 400) requirement = "plane";
+            else if(due.hr < 14 && income > 300 && weight > 300) requirement = "jetpack";
             else{
                 this.state = 0;
                 requirement = null;

@@ -12,6 +12,8 @@ public static class PubVar
     public static float actualSpeed = movSpeed;
     public static int playerWeight = 100;
     public static int playerLevel = 1;
+
+    public static float Timer;
     
 
     //=========order info============
