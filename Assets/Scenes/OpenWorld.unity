@@ -4079,7 +4079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 288086994}
-  moveSpd: 100
+  moveSpd: 1
 --- !u!1 &2056766837
 GameObject:
   m_ObjectHideFlags: 0

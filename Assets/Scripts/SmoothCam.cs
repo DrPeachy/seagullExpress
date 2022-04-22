@@ -12,6 +12,6 @@ public class SmoothCam : MonoBehaviour
 	{
 		targetPos = new Vector3(target.transform.position.x, target.transform.position.y, transform.position.z);
 		Vector3 velocity = targetPos - transform.position;
-		transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, 1.0f, moveSpd * Time.deltaTime);	
+		transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, 100f, moveSpd * Time.deltaTime);	
 	}
 }
