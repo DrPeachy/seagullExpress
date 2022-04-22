@@ -68,6 +68,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.CompareTag("Obstacle")){
+            soundManagerScript.playSound("hitCloud");
             StartCoroutine(WaitTillRestore());
         }
     }
