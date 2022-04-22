@@ -26,4 +26,20 @@ public static class Vector2Extension {
          vec.y = (sin * tx) + (cos * ty);
          return vec;
      }
+
+     public static bool in_camera(this Vector2 vec){
+         Vector2 temp = Camera.main.WorldToViewportPoint(vec);
+         if(temp.x>=0 && temp.x<=1 && temp.y>=0 && temp.y<=1){
+             return true;
+         } 
+         return false;
+     }
+
+     public static bool in_camera(this Vector2 vec, Camera _cam_ref){
+         Vector2 temp = _cam_ref.WorldToViewportPoint(vec);
+         if(temp.x>=0 && temp.x<=1 && temp.y>=0 && temp.y<=1){
+             return true;
+         } 
+         return false;
+     }
  }
