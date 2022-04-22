@@ -14,6 +14,8 @@ public static class PubVar
     public static int playerLevel = 1;
 
     public static float Timer;
+    public static Vector3 checkPoint;
+    public static StaticTime initTime;
     
 
     //=========order info============
@@ -22,7 +24,7 @@ public static class PubVar
     public static int pkgNum;
     //==========animal info===========
     public static Animal[] animals = {
-        new Animal("Ms.Crocodile", "river", new string[]{"fried chicken", "burger", "human"}),
+        new Animal("Ms.Crocodile", "lake", new string[]{"fried chicken", "burger", "human"}),
         new Animal("the G.O.A.T", "mountain top", new string[]{"Laptop", "Gundamn", "Unity4d", "Gamepad", "rocket","EVA-30"}),
         new Animal("Ms.Fox", "plain", new string[]{"Ducci", "Shanel", "Bior", "Vouis Luitton", "Drapa"}),
         new Animal("Mr.Bear", "cave", new string[]{"honey", "fish","berry"}),

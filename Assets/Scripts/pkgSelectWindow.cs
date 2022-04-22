@@ -17,11 +17,11 @@ public class pkgSelectWindow : MonoBehaviour
     private void Start() {
         slots = transform.Find("slots");
         pkgInfos = new TextMeshProUGUI[6];
-        if(PubVar.packages == null){
+        if(PubVar.packages == null){    // set pkg number limit, randamize pkgs
             setPkgNum();
             PubVar.packages = PkgRandomize();
             displayPkgs(PubVar.packages, pkgInfos);
-        }else{
+        }else{  // still within the same day, back to center
             pkgUI.enabled = false;
         }
         gameObject.SetActive(false);
@@ -68,7 +68,7 @@ public class pkgSelectWindow : MonoBehaviour
         }
     }
 
-    void setPkgNum(){
+    void setPkgNum(){   // set pkg number limit due to level
         switch(PubVar.playerLevel){
             case 1:
                 PubVar.pkgNum = 4;
@@ -82,7 +82,7 @@ public class pkgSelectWindow : MonoBehaviour
         }
     }
 
-    public void generatePkg(){
+    public void generatePkg(){  // instantiate pkg prefab
         Vector3 dif = new Vector3(3, 0, 0);
         for(int i = 0; i < PubVar.pkgNum; i++){
             if(PubVar.packages[i].state == 2){

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -30,7 +31,11 @@ public class PlayerController : MonoBehaviour
         _playerAction.Disable();
     }
     
-
+    private void Start() {
+        if(SceneManager.GetActiveScene().name == "OpenWorld"){
+            transform.position = PubVar.checkPoint;
+        }
+    }
     private void FixedUpdate() {
         if(_playerAction.PlayerControl.OpenBag.IsPressed()){
             BagUI.SetActive(true);
@@ -68,7 +73,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    IEnumerator WaitTillRestore(){
+    IEnumerator WaitTillRestore(){  // lose integrity
         _playerAction.Disable();
         for(int i = 0; i < PubVar.pkgNum; i++){
             if(PubVar.packages[i] != null && PubVar.packages[i].state == 1){

@@ -27,6 +27,8 @@ public class SceneLoader : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right);
             Debug.DrawRay(transform.position , Vector2.right, Color.red);
             if(hit.collider.CompareTag("Player")){
+                if(SceneManager.GetActiveScene().name == "OpenWorld")       // set check point
+                    PubVar.checkPoint = hit.collider.transform.position;
                 SceneManager.LoadScene(sceneName);
                     
             }

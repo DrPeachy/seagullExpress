@@ -62,7 +62,7 @@ public class package
         }
 
         private void setRequirement(){
-            if(due.hr < 13 && income > 400 && weight > 400) requirement = "plane";
+            if(due.hr < 12 && income > 400 && weight > 400) requirement = "plane";
             else if(due.hr < 14 && income > 300 && weight > 300) requirement = "jetpack";
             else{
                 this.state = 0;

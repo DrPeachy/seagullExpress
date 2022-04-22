@@ -25,7 +25,7 @@ public class pkgReference : MonoBehaviour
     }
 
     private void Start() {
-        foreach(var i in PubVar.packages){
+        foreach(var i in PubVar.packages){          // check self
             if(name == (i.id + "")){
                 location = i.address;
                 break;
@@ -33,23 +33,25 @@ public class pkgReference : MonoBehaviour
             index++;
         }
         PubVar.packages[index].dropPos = transform.position;
-        if(Physics2D.OverlapCircle(transform.position, 2.5f, detectLayer)){
-            PubVar.packages[index].state = 3;
-            Debug.Log("deliveried");
-            GetComponent<pkgReference>().enabled = false;
-        }
+        // if(Physics2D.OverlapCircle(transform.position, 2.5f, detectLayer)){
+        //     PubVar.packages[index].state = 3;
+        //     Debug.Log("deliveried");
+        //     GetComponent<pkgReference>().enabled = false;
+        // }
         checkAllPkg();
 
     }
     private void Update() {
-        if(_playerAction.PlayerControl.Interact.IsPressed()){
+        if(_playerAction.PlayerControl.Interact.IsPressed()){                       // check if succeed to deliver
             RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.forward, 0.5f);
             if(hit.collider != null && hit.collider.CompareTag("DeliveryPoint") && hit.collider.name == location){
+                if(PubVar.packages[index].due.check(PubVar.initTime.hr, PubVar.initTime.min)) // if late
+                    PubVar.packages[index].state = 5;
                 PubVar.packages[index].state = 3;
                 GetComponent<pkgReference>().enabled = false;
                 checkAllPkg();
             }
-            if(hit.collider != null && hit.collider.CompareTag("Player")){
+            if(hit.collider != null && hit.collider.CompareTag("Player")){           // pick up pkg
                 PubVar.packages[index].state = 1;
                 PubVar.playerWeight += PubVar.packages[index].weight;
                 PubVar.actualSpeed = PubVar.movSpeed * (1- (PubVar.playerWeight/(PubVar.pkgNum * 400f)) );
@@ -59,7 +61,7 @@ public class pkgReference : MonoBehaviour
     }
 
 
-    void checkAllPkg(){
+    void checkAllPkg(){     // check if all deliveries reach its end
         int flag = 0;
         foreach(package i in PubVar.packages){
             Debug.Log(i.id + " state: " + i.state);

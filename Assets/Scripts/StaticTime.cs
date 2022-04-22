@@ -12,7 +12,7 @@ public class StaticTime
         this.min = min;
         this.hr = hr;
     }
-    public bool check(int hr, int min){
+    public bool check(int hr, int min){         // check if not past due
         if(hr >= this.hr && min > this.hr) return false;
         else return true;
     }
