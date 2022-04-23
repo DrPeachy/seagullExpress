@@ -10,7 +10,7 @@ public static class PubVar
     public static int rating;
     public static float movSpeed = 5;
     public static float actualSpeed = movSpeed;
-    public static int playerWeight = 100;
+    public static int playerWeight = 0;
     public static int playerLevel = 1;
 
     public static float Timer;

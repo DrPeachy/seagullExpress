@@ -51,7 +51,9 @@ public class backPackWindow : MonoBehaviour
                 slots.Find("slot" + i).gameObject.SetActive(false);
                 continue;
             }
-            if(PubVar.packages[i].state == 1){
+            if(PubVar.packages[i].state == 1 ||
+                PubVar.packages[i].state == 4 ||
+                PubVar.packages[i].state == 5){
                 dropButtons[i].SetActive(true);
                 pkgInfos[i] = slots.Find("slot" + i).Find("pkgInfo").GetComponent<TextMeshProUGUI>();
                 pkgInfos[i].text = PubVar.packages[i].BackpackString();
@@ -61,7 +63,7 @@ public class backPackWindow : MonoBehaviour
 
     public void Drop(int x){
         setWeightSpd(x);
-        GameObject newPkg = Instantiate(pkgPrefab.gameObject, _player.transform.position + new Vector3(0.5f,0,0), Quaternion.Euler(0,0,0));
+        GameObject newPkg = Instantiate(pkgPrefab.gameObject, new Vector3(_player.transform.position.x,1,0), Quaternion.Euler(0,0,0));
         newPkg.name = PubVar.packages[x].id + "";
         pkgInfos[x].text = "";
         dropButtons[x].SetActive(false);
@@ -72,6 +74,6 @@ public class backPackWindow : MonoBehaviour
 
     public void setWeightSpd(int x){
         PubVar.playerWeight -= PubVar.packages[x].weight;
-        PubVar.actualSpeed = PubVar.movSpeed * (1- (PubVar.playerWeight/(PubVar.pkgNum * 450f)) );   
+        PubVar.actualSpeed = PubVar.movSpeed * (1- (PubVar.playerWeight/(PubVar.pkgNum * 30f)) );   
     }
 }

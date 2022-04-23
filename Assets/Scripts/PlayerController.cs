@@ -2,20 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using TMPro;
 public class PlayerController : MonoBehaviour
 {
 
     private PlayerAction _playerAction;
-    
     private Rigidbody2D _rig;
     public GameObject BagUI;
-
     private backPackWindow bagCode;
-
     private float obstacleCooldown = 1f;
-
     public Animator animator;
+    public TextMeshProUGUI dmgText;
 
     private void Awake() {
         bagCode = BagUI.GetComponent<backPackWindow>();
@@ -36,6 +33,7 @@ public class PlayerController : MonoBehaviour
         if(SceneManager.GetActiveScene().name == "OpenWorld"){
             transform.position = PubVar.checkPoint;
         }
+        dmgText.text = "";
     }
     private void FixedUpdate() {
         if(_playerAction.PlayerControl.OpenBag.IsPressed()){
@@ -78,15 +76,21 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator WaitTillRestore(){  // lose integrity
         _playerAction.Disable();
+        float damage;
         for(int i = 0; i < PubVar.pkgNum; i++){
             if(PubVar.packages[i] != null && PubVar.packages[i].state == 1){
-
-                PubVar.packages[i].getHit( (1- (PubVar.packages[i].weight/500f)) * 10f);
+                damage = (1- (PubVar.packages[i].weight/35f)) * 20f;
+                dmgText.text += PubVar.packages[i].getHit(damage);
                 print(PubVar.packages[i].integrity+ "  " +(PubVar.packages[i].weight/500) * 10);
             }
         }
         yield return new WaitForSeconds(obstacleCooldown);
         _rig.velocity = Vector2.zero;
         _playerAction.Enable();
+        yield return new WaitForSeconds(3f);
+        dmgText.text = "";
     }
+
+
+
 }

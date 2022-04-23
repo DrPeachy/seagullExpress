@@ -27,11 +27,11 @@ public class Animal
         package pkg = new package(wishlist[Random.Range(0, wishlist.Length)],   //name
                                             Random.Range(1000,10000),           //id
                                             -1,                                 //state
-                                            name,
+                                            this,                               //receiver
                                             address, 
-                                            new StaticTime(Random.Range(10,25), Random.Range(0,61)), //StaticTime
-                                            Random.Range(60, 500),              //income
-                                            Random.Range(60, 500));             //weight
+                                            new StaticTime(Random.Range(10,24), Random.Range(0,61)), //due
+                                            Random.Range(60, 501),              //income($)
+                                            Random.Range(1, 31));               //weight(kilogram)
 
         return pkg;
     }

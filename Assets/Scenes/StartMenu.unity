@@ -358,7 +358,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5193416828030232668, guid: 2981ffab6dd6e3d4f80444fa3b543e53, type: 3}
       propertyPath: tfr
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5193416828030232669, guid: 2981ffab6dd6e3d4f80444fa3b543e53, type: 3}
       propertyPath: m_Name

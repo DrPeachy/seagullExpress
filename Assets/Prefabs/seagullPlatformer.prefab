@@ -169,3 +169,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BagUI: {fileID: 0}
   animator: {fileID: 1720251421644501989}
+  dmgText: {fileID: 0}

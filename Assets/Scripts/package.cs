@@ -7,7 +7,7 @@ public class package
         public string name{get;set;}
         public int id {get;set;}
         public int state {get;set;}
-        public string to {get;set;}
+        public Animal receiver {get;set;}
         public string address {get;set;}
         public StaticTime due {get;set;}
         public int income {get;set;}
@@ -20,11 +20,11 @@ public class package
     /*
         -1: not avaible, 0: avaible, 1: delivering, 2: dropped, 3: delivered, 4: broken, 5: past due
     */
-        public package(string name, int anId, int aState, string aTo, string anAddress, StaticTime aDue, int aIncome, int aWeight){
-            this.name =name;
+        public package(string name, int anId, int aState, Animal receiver, string anAddress, StaticTime aDue, int aIncome, int aWeight){
+            this.name = name;
             id = anId;
             state = aState;
-            to = aTo;
+            this.receiver = receiver;
             address = anAddress;
             due = aDue;
             income = aIncome;
@@ -36,22 +36,22 @@ public class package
         public override string ToString(){
             return "package id: " + id
                         + "\nname: " + name
-                        + "\nweight: " + weight
-                        + "\n\nto: " + to
+                        + $"\nweight: {weight} kg"
+                        + "\n\nto: " + receiver.name
                         + "\naddress: " + address
                         + "\n\nship before: " + due
-                        + "\nincome: " + income
-                        + (checkAvailable()? "\navailable":"\nnot available");
+                        + "\nincome: $" + income
+                        + (checkAvailable()? "\navailable" : $"\nrequirement: {requirement}");
         }
 
         public string BackpackString(){
             return "package id: " + id
                         + "\nname: " + name
-                        + "\nweight: " + weight
-                        + "\n\nto: " + to
+                        + $"\nweight: {weight} kg"
+                        + "\n\nto: " + receiver.name
                         + "\naddress: " + address
                         + "\n\nship before: " + due
-                        + "\nintegrity: " + integrity + "%";
+                        + $"\nintegrity: {integrity:.00}%";
                         
         }
 
@@ -62,8 +62,8 @@ public class package
         }
 
         private void setRequirement(){
-            if(due.hr < 12 && income > 400 && weight > 400) requirement = "plane";
-            else if(due.hr < 14 && income > 300 && weight > 300) requirement = "jetpack";
+            if(due.hr < 9 && income > 400 && weight > 25) requirement = "plane";
+            else if(due.hr < 10 && income > 300 && weight > 20) requirement = "jetpack";
             else{
                 this.state = 0;
                 requirement = null;
@@ -71,12 +71,14 @@ public class package
 
         }
         
-        public void getHit(float num){
+        public string getHit(float num){
             if(integrity > 0) integrity -= num;
             if(integrity <= 0){
                 integrity = 0;
                 state = 4;  // set broken
             }
+            return (integrity == 0)? $"package(#{id}) is broken!\n" : $"package(#{id}) receives {num:.00} damages!\n";
+
         }
 
         public string GetState() {
