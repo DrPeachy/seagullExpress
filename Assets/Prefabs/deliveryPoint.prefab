@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8640355276956989556}
   - component: {fileID: 8640355276956989554}
   - component: {fileID: 8640355276956989559}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: deliveryPoint
   m_TagString: DeliveryPoint
   m_Icon: {fileID: 0}
