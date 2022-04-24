@@ -63,8 +63,11 @@ public class backPackWindow : MonoBehaviour
 
     public void Drop(int x){
         setWeightSpd(x);
+        // create new pkg prefab
         GameObject newPkg = Instantiate(pkgPrefab.gameObject, new Vector3(_player.transform.position.x,1,0), Quaternion.Euler(0,0,0));
         newPkg.name = PubVar.packages[x].id + "";
+
+        // update backpack page
         pkgInfos[x].text = "";
         dropButtons[x].SetActive(false);
         // dont drop pkg in openworld!!!

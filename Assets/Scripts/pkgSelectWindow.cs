@@ -15,15 +15,25 @@ public class pkgSelectWindow : MonoBehaviour
     private Transform slots;
 
 
+
+
     private void Start() {
         slots = transform.Find("slots");
         pkgInfos = new TextMeshProUGUI[6];
+
         if(PubVar.packages == null){    // set pkg number limit, randamize pkgs
             setPkgNum();
             PubVar.packages = PkgRandomize();
             displayPkgs(PubVar.packages, pkgInfos);
-        }else{  // still within the same day, back to center
-            pkgUI.enabled = false;
+        }else{  // havent hit confirm butto
+            int flag = 0;
+            foreach(package i in PubVar.packages){
+                if(i.state == 1 || i.state == 2) flag = 1;
+            }
+            if(flag == 1) pkgUI.enabled = false;
+            else{
+                displayPkgs(PubVar.packages, pkgInfos);
+            }
         }
         gameObject.SetActive(false);
     }

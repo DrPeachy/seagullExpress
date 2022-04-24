@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Animator transition;
     public string sceneName;
     public PlayerAction _playerAction;
+    public float transitionTime = 1f;
+
+    private bool flag = true;
 
     private void Awake() {
         _playerAction = new PlayerAction();
@@ -23,16 +26,25 @@ public class SceneLoader : MonoBehaviour
 
 
     private void FixedUpdate() {
-        if(_playerAction.PlayerControl.Interact.IsPressed()){
+
+        if(_playerAction.PlayerControl.Interact.IsPressed() && flag){
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right);
             Debug.DrawRay(transform.position , Vector2.right, Color.red);
             if(hit.collider.CompareTag("Player")){
                 if(SceneManager.GetActiveScene().name == "OpenWorld")       // set check point
                     PubVar.checkPoint = hit.collider.transform.position;
-                SceneManager.LoadScene(sceneName);
-                    
+                flag = false;
+                StartCoroutine(LoadSceneWithAni());
+
             }
         }
+    }
+
+
+    IEnumerator LoadSceneWithAni(){
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(transitionTime);
+        SceneManager.LoadScene(sceneName);
     }
 
 }
