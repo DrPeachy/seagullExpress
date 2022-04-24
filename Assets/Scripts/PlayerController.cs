@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
         if(SceneManager.GetActiveScene().name == "OpenWorld"){
             transform.position = PubVar.checkPoint;
         }
-        dmgText.text = "";
+        if(dmgText) dmgText.text = "";
     }
     private void FixedUpdate() {
         if(_playerAction.PlayerControl.OpenBag.IsPressed()){

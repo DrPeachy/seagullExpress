@@ -14,7 +14,7 @@ public class DeliveryEnd : MonoBehaviour
     {   
         int pkgPickedUp = 0;
         foreach (package p in PubVar.packages) {
-            if (p.GetState() == "Delivered" || p.GetState() == "Broken" || p.GetState() == "Late") {
+            if (p.GetState() != "Not Available" && p.GetState() != "Available") {
                 pkgPickedUp += 1;
                 totalPay += p.Results(ref results);
                 results += "\n";

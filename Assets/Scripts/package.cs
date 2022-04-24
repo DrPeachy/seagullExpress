@@ -72,24 +72,38 @@ public class package
         }
         
         public string getHit(float num){
+            if(num == 100) return "You drop your package in the air? Seriously?";
             if(integrity > 0) integrity -= num;
             if(integrity <= 0){
                 integrity = 0;
-                state = 4;  // set broken
+                this.state = 4;  // set broken
             }
             return (integrity == 0)? $"package(#{id}) is broken!\n" : $"package(#{id}) receives {num:.00} damages!\n";
 
         }
 
+        public bool UpdateState(){
+            if(!due.check(PubVar.initTime.hr, PubVar.initTime.min)){ // if late
+                state = 5;
+                if(integrity == 0) state = 6; // late & broken
+                return false;
+            }
+            else if(integrity == 0){
+                state = 4;
+                return false;
+            }
+            return true;
+        }
         public string GetState() {
             switch (state) {
                 case -1: return "Not Available";
                 case  0: return "Available";
-                case  1: return "Delivering";
+                case  1: return "Not Delivered";
                 case  2: return "Dropped";
                 case  3: return "Delivered";
                 case  4: return "Broken";
                 case  5: return "Late";
+                case  6: return "Late & Broken";
                 default: return "";
             }
         }

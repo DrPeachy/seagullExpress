@@ -68,8 +68,10 @@ public class backPackWindow : MonoBehaviour
         pkgInfos[x].text = "";
         dropButtons[x].SetActive(false);
         // dont drop pkg in openworld!!!
-        if(SceneManager.GetActiveScene().name == "OpenWorld") PubVar.packages[x].getHit(100);
-        else PubVar.packages[x].state = 2;
+        if(SceneManager.GetActiveScene().name == "OpenWorld")
+            PubVar.packages[x].getHit(100);
+        else if(PubVar.packages[x].UpdateState())
+            PubVar.packages[x].state = 2;
     }
 
     public void setWeightSpd(int x){
