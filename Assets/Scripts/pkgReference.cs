@@ -41,7 +41,7 @@ public class pkgReference : MonoBehaviour
         if(_playerAction.PlayerControl.Interact.IsPressed()){                       // check if succeed to deliver
             RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.forward, 0.5f);
             Debug.Log(Physics2D.OverlapCircle(transform.position, 5f, detectLayer));
-            Collider2D deliveryPoint = Physics2D.OverlapCircle(transform.position, 5f, detectLayer);
+            Collider2D deliveryPoint = Physics2D.OverlapCircle(transform.position, 1f, detectLayer);
             if(deliveryPoint != null &&
                 deliveryPoint.GetComponent<DeliveryPoint>().code == SceneManager.GetActiveScene().name){
                 // set state before deliver
@@ -49,6 +49,7 @@ public class pkgReference : MonoBehaviour
                     PubVar.packages[index].state = 3;
                 // disable pkg prefab
                 GetComponent<pkgReference>().enabled = false;
+                Debug.Log($"{PubVar.packages[index].id} is {PubVar.packages[index].GetState()}");
                 checkAllPkg();
             }
             if(hit.collider != null && hit.collider.CompareTag("Player")){           // pick up pkg

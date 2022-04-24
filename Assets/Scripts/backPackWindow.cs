@@ -70,8 +70,7 @@ public class backPackWindow : MonoBehaviour
         // dont drop pkg in openworld!!!
         if(SceneManager.GetActiveScene().name == "OpenWorld")
             PubVar.packages[x].getHit(100);
-        else if(PubVar.packages[x].UpdateState())
-            PubVar.packages[x].state = 2;
+        else PubVar.packages[x].state = 2;
     }
 
     public void setWeightSpd(int x){
