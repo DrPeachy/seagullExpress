@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public Animator transition;
+    public AnimationClip tran_in;
     public string sceneName;
     public PlayerAction _playerAction;
     public float transitionTime = 1f;
@@ -41,10 +42,15 @@ public class SceneLoader : MonoBehaviour
     }
 
 
-    IEnumerator LoadSceneWithAni(){
+    public IEnumerator LoadSceneWithAni(){
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void wrapper(){
+        
+        StartCoroutine(LoadSceneWithAni());
     }
 
 }

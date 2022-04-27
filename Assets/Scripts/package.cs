@@ -116,6 +116,10 @@ public class package
             if (integrity == 0) {
                 payOut = -(income/2);
             }
+            if(GetState() == "Delivered"){
+                PubVar.deliveredPkg ++;
+                Debug.Log(PubVar.deliveredPkg);
+            }
             resStr += "Package ID: " + id
                     + "\n Name: " + name
                     + "\n Status: " + GetState()

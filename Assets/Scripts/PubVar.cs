@@ -12,9 +12,12 @@ public static class PubVar
     public static float actualSpeed = movSpeed;
     public static int playerWeight = 0;
     public static int playerLevel = 1;
+    public static int deliveredPkg = 0;
 
-    public static float Timer;
     public static Vector3 checkPoint;
+
+    //===========timer===============
+    public static float Timer;
     public static StaticTime initTime;
     
 

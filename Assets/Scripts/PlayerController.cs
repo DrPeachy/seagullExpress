@@ -42,6 +42,15 @@ public class PlayerController : MonoBehaviour
             bagCode.SetBackpack();
             //soundManagerScript.playSound("openBag");   // NEED TO BE FIXED
         }
+
+
+        // set player level -> increase pkg limit
+        if(PubVar.deliveredPkg == 5){
+            PubVar.playerLevel = 2;
+        }
+        else if(PubVar.deliveredPkg == 12){
+            PubVar.playerLevel = 3;
+        }
     }
 
 

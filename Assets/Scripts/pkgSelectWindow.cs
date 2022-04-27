@@ -13,6 +13,7 @@ public class pkgSelectWindow : MonoBehaviour
     public Behaviour pkgUI;
 
     private Transform slots;
+    public AnimationClip tran_in;
 
 
 
@@ -79,7 +80,10 @@ public class pkgSelectWindow : MonoBehaviour
                 flag = 1;
             }
         }
-        if(flag == 0) SceneManager.LoadScene("DeliveryEnd");
+        if(flag == 0){
+
+            SceneManager.LoadScene("DeliveryEnd");
+        }
     }
 
     void setPkgNum(){   // set pkg number limit due to level
@@ -94,6 +98,7 @@ public class pkgSelectWindow : MonoBehaviour
                 PubVar.pkgNum = 6;
                 break;
         }
+        Debug.Log(PubVar.pkgNum);
     }
 
     public void generatePkg(){  // instantiate pkg prefab
