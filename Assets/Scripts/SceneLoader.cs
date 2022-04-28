@@ -35,7 +35,7 @@ public class SceneLoader : MonoBehaviour
                 if(SceneManager.GetActiveScene().name == "OpenWorld")       // set check point
                     PubVar.checkPoint = hit.collider.transform.position;
                 flag = false;
-                StartCoroutine(LoadSceneWithAni());
+                //StartCoroutine(LoadSceneWithAni());
 
             }
         }

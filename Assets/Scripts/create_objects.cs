@@ -59,7 +59,7 @@ public class create_objects : MonoBehaviour
         bool flag = true;
         while(flag){
             yield return new WaitForSeconds(cool_down);
-            if(Vector3.Distance(maincam.transform.position, obj.transform.position) > 21){
+            if(Vector3.Distance(maincam.transform.position, obj.transform.position) > 25){
                     Destroy(obj);
                     j--;
                     flag = false;
