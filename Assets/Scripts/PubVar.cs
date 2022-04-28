@@ -8,7 +8,7 @@ public static class PubVar
     public static int money;
     public static int fatigue;
     public static int rating;
-    public static float movSpeed = 5;
+
     public static float actualSpeed = movSpeed;
     public static int playerWeight = 0;
     public static int playerLevel = 1;
@@ -16,6 +16,13 @@ public static class PubVar
 
     public static Vector3 checkPoint = new Vector3(10, -25, 0);
     public static Vector3 originPoint = new Vector3(10, -25, 0);
+
+    //========variable for upgrade=====
+    public static float realTimeForMin = 0.2f;
+    public static float movSpeed = 5;
+    public static float damage = 40;
+
+    
 
     //===========timer===============
     public static float Timer;

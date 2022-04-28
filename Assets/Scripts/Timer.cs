@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    
-    public float realTimeForMin = 0.3f;
     private float timer;
     public int minCountToUpdate = 15;
     private int minCounter;
@@ -16,9 +14,8 @@ public class Timer : MonoBehaviour
 
     private void Awake() {
         PubVar.initTime = new StaticTime(7, 0);
-        timer = realTimeForMin;
+        timer = PubVar.realTimeForMin;
         minCounter = minCountToUpdate;
-        
     }
 
     private void Start() {
@@ -31,7 +28,7 @@ public class Timer : MonoBehaviour
         if(timer < 0){  // increment for in-game minutes
             PubVar.initTime.IncMin();
             minCounter--;
-            timer = realTimeForMin;
+            timer = PubVar.realTimeForMin;
         }
         if(minCounter == 0){    // update text every x in-game minutes
             timerUI.text = PubVar.initTime.ToString();

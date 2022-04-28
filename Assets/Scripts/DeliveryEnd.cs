@@ -8,7 +8,7 @@ public class DeliveryEnd : MonoBehaviour
     public TextMeshProUGUI resultsUI;
     public float textSpeed = 0.05f;
     string results = "";
-    int totalPay = 0;
+    float totalPay = 0;
 
     void Start()
     {   
@@ -24,7 +24,7 @@ public class DeliveryEnd : MonoBehaviour
         if (pkgPickedUp == 0) {
             results = "No Packages Picked Up\n";
         }
-        results += " \nTotal Pay: $" + totalPay;
+        results += $" \nTotal Pay: ${totalPay:.}";
 
         // StartCoroutine(printText(results));
     }

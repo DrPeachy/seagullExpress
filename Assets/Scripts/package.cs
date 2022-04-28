@@ -108,13 +108,19 @@ public class package
             }
         }
 
-        public int Results(ref string resStr) {
-            int payOut = (int)(income * (integrity/100));
+        public float Results(ref string resStr) {
+            float payOut = (income * (integrity/100));
             if (GetState() == "Late") {
-                payOut = (int)(payOut * 0.2f);
+                payOut = (payOut * 0.2f);
             }
             if (integrity == 0) {
                 payOut = -(income/2);
+            }
+            if (integrity == 0) {
+                payOut = -(income/1.5f);
+            }
+            if(GetState() == "Not Delivered"){
+                payOut = -(income);
             }
             if(GetState() == "Delivered"){
                 PubVar.deliveredPkg ++;
@@ -125,7 +131,7 @@ public class package
             resStr += "Package ID: " + id
                     + "\n Name: " + name
                     + "\n Status: " + GetState()
-                    + "\n Payout: " + payOut; 
+                    + $"\n Payout: {payOut:.}"; 
             return payOut;
         }
 }

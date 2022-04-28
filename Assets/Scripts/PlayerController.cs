@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
         float damage;
         for(int i = 0; i < PubVar.pkgNum; i++){
             if(PubVar.packages[i] != null && PubVar.packages[i].state == 1){
-                damage = (1 - (PubVar.packages[i].weight/35f)) * 40f;
+                damage = (1 - (PubVar.packages[i].weight/35f)) * PubVar.damage;
                 dmgText.text += PubVar.packages[i].getHit(damage);
                 print(PubVar.packages[i].integrity+ "  " +(PubVar.packages[i].weight/500) * 10);
             }
