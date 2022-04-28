@@ -36,11 +36,14 @@ public class PlayerController : MonoBehaviour
         if(dmgText) dmgText.text = "";
     }
     private void FixedUpdate() {
+
+        // open backpack
         if(_playerAction.PlayerControl.OpenBag.IsPressed()){
-            BagUI.SetActive(true);
-            //bagCode.ClearBackPack();
-            bagCode.SetBackpack();
-            //soundManagerScript.playSound("openBag");   // NEED TO BE FIXED
+            if(!BagUI.activeSelf){
+                BagUI.SetActive(true);
+                bagCode.SetBackpack();
+                soundManagerScript.playSound("openBag");   // NEED TO BE FIXED
+            }
         }
 
 
@@ -82,7 +85,7 @@ public class PlayerController : MonoBehaviour
         float damage;
         for(int i = 0; i < PubVar.pkgNum; i++){
             if(PubVar.packages[i] != null && PubVar.packages[i].state == 1){
-                damage = (1- (PubVar.packages[i].weight/35f)) * 20f;
+                damage = (1 - (PubVar.packages[i].weight/35f)) * 40f;
                 dmgText.text += PubVar.packages[i].getHit(damage);
                 print(PubVar.packages[i].integrity+ "  " +(PubVar.packages[i].weight/500) * 10);
             }
