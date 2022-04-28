@@ -5,7 +5,7 @@ using UnityEngine;
 public static class PubVar
 {
     //=========general stats=========
-    public static int money;
+    public static float money;
     public static int fatigue;
     public static int rating;
 
@@ -22,7 +22,7 @@ public static class PubVar
     public static float movSpeed = 5;
     public static float damage = 40;
 
-    
+
 
     //===========timer===============
     public static float Timer;

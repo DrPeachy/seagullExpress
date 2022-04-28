@@ -25,6 +25,7 @@ public class DeliveryEnd : MonoBehaviour
             results = "No Packages Picked Up\n";
         }
         results += $" \nTotal Pay: ${totalPay:.}";
+        PubVar.money += totalPay;
 
         // StartCoroutine(printText(results));
     }

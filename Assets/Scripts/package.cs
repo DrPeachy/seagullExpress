@@ -109,22 +109,25 @@ public class package
         }
 
         public float Results(ref string resStr) {
+            // money up
             float payOut = (income * (integrity/100));
+
             if (GetState() == "Late") {
                 payOut = (payOut * 0.2f);
-            }
-            if (integrity == 0) {
-                payOut = -(income/2);
-            }
-            if (integrity == 0) {
-                payOut = -(income/1.5f);
-            }
-            if(GetState() == "Not Delivered"){
-                payOut = -(income);
             }
             if(GetState() == "Delivered"){
                 PubVar.deliveredPkg ++;
                 Debug.Log(PubVar.deliveredPkg);
+            }
+            // money down
+            if (GetState() == "Broken") {
+                payOut = -(income/2);
+            }
+            if (GetState() == "Late & Broken") {
+                payOut = -(income/1.5f);
+            }
+            if(GetState() == "Not Delivered"){
+                payOut = -(income);
             }
 
             // set result string
