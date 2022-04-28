@@ -1585,6 +1585,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5016927662810921319, guid: a4a90f631c4c59442ad088699e4dd271, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1014427871, guid: 2ca2e1f8d69f3204b9dae6568d8423af, type: 3}
     - target: {fileID: 5016927662810921321, guid: a4a90f631c4c59442ad088699e4dd271, type: 3}
       propertyPath: sceneName
       value: Plain
@@ -3572,6 +3576,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5016927662810921319, guid: a4a90f631c4c59442ad088699e4dd271, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1841428038, guid: 2ca2e1f8d69f3204b9dae6568d8423af, type: 3}
     - target: {fileID: 5016927662810921321, guid: a4a90f631c4c59442ad088699e4dd271, type: 3}
       propertyPath: sceneName
       value: MountainTop
@@ -4207,6 +4215,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5016927662810921319, guid: a4a90f631c4c59442ad088699e4dd271, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1861865529, guid: 2ca2e1f8d69f3204b9dae6568d8423af, type: 3}
     - target: {fileID: 5016927662810921321, guid: a4a90f631c4c59442ad088699e4dd271, type: 3}
       propertyPath: sceneName
       value: Lake
@@ -4698,6 +4710,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5016927662810921319, guid: a4a90f631c4c59442ad088699e4dd271, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -961404640, guid: 2ca2e1f8d69f3204b9dae6568d8423af, type: 3}
     - target: {fileID: 5016927662810921321, guid: a4a90f631c4c59442ad088699e4dd271, type: 3}
       propertyPath: sceneName
       value: Cave

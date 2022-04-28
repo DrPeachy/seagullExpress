@@ -10,6 +10,7 @@ public class SceneLoader : MonoBehaviour
     public string sceneName;
     public PlayerAction _playerAction;
     public float transitionTime = 1f;
+    public LayerMask playerMask;
 
     private bool flag = true;
 
@@ -29,14 +30,24 @@ public class SceneLoader : MonoBehaviour
     private void FixedUpdate() {
 
         if(_playerAction.PlayerControl.Interact.IsPressed() && flag){
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right);
-            Debug.DrawRay(transform.position , Vector2.right, Color.red);
-            if(hit.collider.CompareTag("Player")){
-                if(SceneManager.GetActiveScene().name == "OpenWorld")       // set check point
-                    PubVar.checkPoint = hit.collider.transform.position;
-                flag = false;
-                StartCoroutine(LoadSceneWithAni());
 
+            if(SceneManager.GetActiveScene().name == "OpenWorld"){  // openWorld
+                Collider2D hit;
+                if(hit = Physics2D.OverlapCircle(transform.position, 3, playerMask)){
+                    flag = false;
+                    PubVar.checkPoint = hit.transform.position;
+                    StartCoroutine(LoadSceneWithAni());
+                }
+            }
+            else{                                                   // platformer
+                // RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, playerMask);
+                // Debug.DrawRay(transform.position , Vector2.right, Color.red);
+                // StartCoroutine(LoadSceneWithAni());
+                Collider2D hit;
+                if(hit = Physics2D.OverlapBox(transform.position, new Vector2(2, 2) , 0f, playerMask)){
+                    flag = false;
+                    StartCoroutine(LoadSceneWithAni());
+                }
             }
         }
     }

@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 5016927662810921318}
   - component: {fileID: 5016927662810921321}
   - component: {fileID: 5016927662810921319}
-  - component: {fileID: 5016927662810921316}
+  - component: {fileID: 6091421589623918678}
   m_Layer: 0
   m_Name: sceneLoader
   m_TagString: Untagged
@@ -294,6 +294,9 @@ MonoBehaviour:
   tran_in: {fileID: 7400000, guid: 8d5d82534b9585c47ad46e12a52843be, type: 2}
   sceneName: OpenWorld
   transitionTime: 1.2
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!212 &5016927662810921319
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -346,8 +349,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5016927662810921316
-BoxCollider2D:
+--- !u!58 &6091421589623918678
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -360,15 +363,5 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.6, y: 2.4}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2}
-  m_EdgeRadius: 0
+  m_Radius: 2.2666667

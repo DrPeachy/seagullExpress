@@ -23,7 +23,7 @@ public class DontDestroy : MonoBehaviour
         }
     }
     private void OnDestroy() {
-        foreach(var i in PubVar.packages){
+        foreach(var i in PubVar.packages ?? new package[0]){
             if(i.state == 2 && i.dropScene == null){
                 i.dropScene = SceneManager.GetActiveScene().name;
             }
