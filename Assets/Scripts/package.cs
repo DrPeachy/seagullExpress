@@ -120,6 +120,8 @@ public class package
                 PubVar.deliveredPkg ++;
                 Debug.Log(PubVar.deliveredPkg);
             }
+
+            // set result string
             resStr += "Package ID: " + id
                     + "\n Name: " + name
                     + "\n Status: " + GetState()
