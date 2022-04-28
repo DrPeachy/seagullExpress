@@ -39,7 +39,7 @@ public class create_objects : MonoBehaviour
         while(i < nums_to_create_each_time){
             // 20 and 10 are the camera size, which are constant
             x = Random.Range(maincam.transform.position.x - 20, maincam.transform.position.x + 20);
-            y = Random.Range(maincam.transform.position.y - 20, maincam.transform.position.y + 20);
+            y = Random.Range(maincam.transform.position.y - 15, maincam.transform.position.y + 15);
             Vector2 pos = new Vector2(x,y);
             Vector2 temp = maincam.WorldToViewportPoint(pos);
             if(Physics2D.BoxCast(pos, _obj_rd.bounds.size*2, 0, Vector2.up, .01f) ||
