@@ -63,6 +63,7 @@ public class UpgradeWindow : MonoBehaviour
         for(int i = 0; i < 5; i++){
             upInfos[i] = slots.Find("slot" + i).Find("upInfo").GetComponent<TextMeshProUGUI>();
             upInfos[i].text = PubVar.upgrades[i].ToString();
+            PubVar.upgrades[i].info = PubVar.upgrades[i].ToString();
             Debug.Log(PubVar.upgrades[i].ToString());
             purchaseButtons[i].SetActive(true);
             purchaseButtons[i].GetComponent<Button>().interactable = true;
