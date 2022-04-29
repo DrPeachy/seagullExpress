@@ -293,7 +293,7 @@ MonoBehaviour:
   transition: {fileID: 1652698604}
   tran_in: {fileID: 7400000, guid: 8d5d82534b9585c47ad46e12a52843be, type: 2}
   sceneName: OpenWorld
-  transitionTime: 1.2
+  transitionTime: 1.3
   playerMask:
     serializedVersion: 2
     m_Bits: 8

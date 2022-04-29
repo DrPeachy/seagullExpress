@@ -11,6 +11,9 @@ public class Upgrade
 
     public int level {get;set;}
 
+    public string info{get;set;}
+    public bool isPurchased{get;set;}
+
 
     public Upgrade(string upName, float price, int limit, string detail){
         this.upName = upName;
@@ -18,6 +21,7 @@ public class Upgrade
         this.limit = limit;
         this.level = 1;
         this.detail = detail;
+        isPurchased = false;
     }
 
     public string Spdup() { 

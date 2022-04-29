@@ -21,7 +21,7 @@ public class pkgSelectWindow : MonoBehaviour
 
     private void Start() {
         slots = transform.Find("slots");
-        pkgInfos = new TextMeshProUGUI[6];
+        pkgInfos = new TextMeshProUGUI[8];
 
         if(PubVar.packages == null){    // set pkg number limit, randamize pkgs
             setPkgNum();
@@ -59,7 +59,7 @@ public class pkgSelectWindow : MonoBehaviour
 
     void displayPkgs(package[] pkgs, TextMeshProUGUI[] texts){
         //Transform slots = transform.Find("slots");
-        for(int i = 0; i < 6; i++){
+        for(int i = 0; i < 8; i++){
             if(PubVar.pkgNum <= i){
                 slots.Find("slot" + i).gameObject.SetActive(false);
                 continue;
