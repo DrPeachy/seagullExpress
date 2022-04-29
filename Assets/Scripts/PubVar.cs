@@ -52,6 +52,7 @@ public static class PubVar
     };
 
 
-
+    // for pause_menu
+    public static bool sound_on = true;
 
 }

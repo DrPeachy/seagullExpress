@@ -50,6 +50,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if(_playerAction.PlayerControl.Pause.IsPressed()){
+            GameObject.FindGameObjectWithTag("pause_menu").GetComponent<pause_menu>().pause(); // NEED TO BE FIXED
+        }
         Vector2 moveInput = _playerAction.PlayerControl.Move.ReadValue<Vector2>();
         if(_rig.gravityScale == 0){ // top down control
             // on controller, set velocity

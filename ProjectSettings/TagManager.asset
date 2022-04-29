@@ -7,6 +7,7 @@ TagManager:
   - DeliveryPoint
   - Obstacle
   - Package
+  - pause_menu
   layers:
   - Default
   - TransparentFX

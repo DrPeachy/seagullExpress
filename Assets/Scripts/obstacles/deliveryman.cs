@@ -25,14 +25,17 @@ public class deliveryman : MonoBehaviour
     }
 
     private void Update() {
-        Vector3 offset = transform.up.normalized * (_coll.bounds.size.y + .2f);
+        Vector3 offset = transform.up.normalized * (_coll.bounds.size.y + .3f);
         _hit = Physics2D.BoxCast(transform.position + offset, _coll.bounds.size, 0, transform.up, 5f);
         if(_hit){
-            print(_hit.transform.position);
+            // print(_hit.transform.position);
             _rb.velocity = _rb.velocity * 0.5f;
             transform.up = transform.up.Rotate(2f);
         } else {
-            print(_rb.velocity);
+            // need to be impreved
+            //if( !_rb.velocity.normalized.equals_in_2d(transform.up.normalized)){
+                //_rb.velocity = _rb.velocity.projection(transform.up) * _rb.velocity.normalized;
+            //}
             if(_rb.velocity.magnitude < speed_limit){
                 _rb.AddForce(transform.up * speed_const);
             }
