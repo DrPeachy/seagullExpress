@@ -22,13 +22,16 @@ public static class PubVar
     public static float actualSpeed = movSpeed;
     public static float damage = 40;
     public static float pkgBaseIncome = 500f;
+    public static int pkglimit = 4;
+
+    public static bool flagShop = false;
 
     public static Upgrade[] upgrades = {
-        new Upgrade("SpeedUp", 200, 3),
-        new Upgrade("DmgDown", 200, 3),
-        new Upgrade("SlowerTime", 200, 3),
-        new Upgrade("RandomUpgrade", 150, 50),
-        new Upgrade("PackageLimit + 1", 1500, 1)
+        new Upgrade("SpeedUp", 200, 3, "You will be granted with a permanent speed up with this turbo charger, and be careful during your flight."),
+        new Upgrade("DmgDown", 200, 3, "With the Wno reverse card, the damage recevied by your package will be reduced."),
+        new Upgrade("SlowerTime", 200, 3, "Except from the red and blue pill, you can choose this green pill. It makes you feel time flows slower."),
+        new Upgrade("RandomUpgrade", 150, 50, "No one knows what is inside this gashapon machine."),
+        new Upgrade("PackageLimit + 1", 1500, 1, "Your boss will grant you one more choice(You can do more delivery now!)")
     };
 
     //===========timer===============
@@ -40,7 +43,6 @@ public static class PubVar
 
     public static package[] packages;
     public static int pkgNum;
-    public static int pkglimit = 4;
     //==========animal info===========
     public static Animal[] animals = {
         new Animal("Ms.Crocodile", "lake", new string[]{"fried chicken", "burger", "human"}),

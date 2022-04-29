@@ -12,6 +12,8 @@ public class backPackWindow : MonoBehaviour
     private GameObject _player;
     private GameObject[] dropButtons = new GameObject[8];
 
+    public TextMeshProUGUI moneyText;
+
 
     //private PlayerAction _playerAction;
 
@@ -20,6 +22,7 @@ public class backPackWindow : MonoBehaviour
     }
     void Start()
     {
+        moneyText.text = $"Money: {PubVar.money:.}";
         slots = transform.Find("slots");
         for(int i = 0; i < 8; i++){
             dropButtons[i] = slots.Find("slot" + i).Find("drop").gameObject;

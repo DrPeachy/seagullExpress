@@ -2,19 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Upgrade : MonoBehaviour
+public class Upgrade
 {
     public string upName {get;set;}
     public float price {get;set;}
     public int limit {get;set;}
+    public string detail {get;set;}
 
-    private int level;
+    public int level {get;set;}
 
-    public Upgrade(string upName, float price, int limit){
+
+    public Upgrade(string upName, float price, int limit, string detail){
         this.upName = upName;
         this.price = price;
         this.limit = limit;
         this.level = 1;
+        this.detail = detail;
     }
 
     public string Spdup() { 
@@ -48,22 +51,30 @@ public class Upgrade : MonoBehaviour
         }
     }
 
-    public void NextBlock(){
+    public string PkgLimitUp(){
+        PubVar.pkgNum = 5;
+        return "You can have one more package to select now!\n";
+    }
+
+    public bool NextBlock(){
         switch(limit){
             case 3:
                 if(level < limit){
                     price *= 2;
                     price += (level * 100);
                     level++;
+                    return true;
                 }
-                break;
+                return false;
             case 50:
                 if(level < limit){
                     price *= 1.2f;
                     price += (level * 40);
                     level++;
+                    return true;
                 }
-                break;
+                return false;
+            default: return false;
         }
     }
 
@@ -74,5 +85,15 @@ public class Upgrade : MonoBehaviour
         }else{
             return false;
         }
+    }
+
+
+    public override string ToString()
+    {
+        return $"Upgrade Name: {upName}" 
+            + $"\nUpgradePrice: {price:.}" 
+            + $"\nCurrent Upgrade Level: {level}"
+            + $"\nPurchase Limit: {limit}"
+            + $"\n\n{detail}\n";
     }
 }

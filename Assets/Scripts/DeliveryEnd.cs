@@ -45,6 +45,7 @@ public class DeliveryEnd : MonoBehaviour
     private void OnDestroy() {
         PubVar.packages = null;
         PubVar.checkPoint = PubVar.originPoint;
+        PubVar.flagShop = false;
 
         
         // set player level -> increase pkg limit

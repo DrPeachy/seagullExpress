@@ -48,6 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newUI: {fileID: 0}
   oldUI: {fileID: 0}
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!212 &8959810747170879708
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -87,7 +90,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -838325433
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -698112425, guid: c0b7a5928d45b144cb3de5ed79b7972d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -7,6 +7,7 @@ public class UILoader : MonoBehaviour
     public PlayerAction _playerAction;
     public GameObject newUI;
     public GameObject oldUI;
+    public LayerMask playerMask;
     private void Awake() {
         _playerAction = new PlayerAction();
     }
@@ -20,16 +21,12 @@ public class UILoader : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        if(true){
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right);
-            Debug.DrawRay(transform.position , Vector2.right, Color.red);
-            if(hit.collider.CompareTag("Player") && _playerAction.PlayerControl.Interact.IsPressed()){
-                soundManagerScript.playSound("clickUI");
-                if(oldUI&&newUI){
-                    oldUI.SetActive(false);
-                    newUI.SetActive(true);
-                    
-                }         
+
+        if(_playerAction.PlayerControl.Interact.IsPressed()){
+            if(Physics2D.OverlapBox(transform.position, new Vector2(1, 3), 0f, playerMask)){
+                soundManagerScript.playSound("clickUI");    
+                oldUI.SetActive(false);
+                newUI.SetActive(true);         
             }
         }
     }
