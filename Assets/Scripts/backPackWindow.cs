@@ -10,7 +10,7 @@ public class backPackWindow : MonoBehaviour
     private TextMeshProUGUI[] pkgInfos;
     public Transform pkgPrefab;
     private GameObject _player;
-    private GameObject[] dropButtons = new GameObject[6];
+    private GameObject[] dropButtons = new GameObject[8];
 
 
     //private PlayerAction _playerAction;
@@ -21,12 +21,12 @@ public class backPackWindow : MonoBehaviour
     void Start()
     {
         slots = transform.Find("slots");
-        for(int i = 0; i < 6; i++){
+        for(int i = 0; i < 8; i++){
             dropButtons[i] = slots.Find("slot" + i).Find("drop").gameObject;
             dropButtons[i].SetActive(false);
         }
         _player = GameObject.FindGameObjectWithTag("Player");
-        pkgInfos = new TextMeshProUGUI[6];
+        pkgInfos = new TextMeshProUGUI[8];
         gameObject.SetActive(false);
         
     }
@@ -46,7 +46,7 @@ public class backPackWindow : MonoBehaviour
 
     public void SetBackpack(){
         //int counter = 0;
-        for(int i = 0; i < 6; i++){
+        for(int i = 0; i < 8; i++){
             if(PubVar.pkgNum <= i){
                 slots.Find("slot" + i).gameObject.SetActive(false);
                 continue;

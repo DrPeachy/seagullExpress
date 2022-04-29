@@ -45,9 +45,6 @@ public class PlayerController : MonoBehaviour
                 soundManagerScript.playSound("openBag");   // NEED TO BE FIXED
             }
         }
-
-
-
     }
 
 

@@ -18,6 +18,7 @@ public class pkgSelectWindow : MonoBehaviour
 
 
 
+
     private void Start() {
         slots = transform.Find("slots");
         pkgInfos = new TextMeshProUGUI[6];
@@ -89,13 +90,13 @@ public class pkgSelectWindow : MonoBehaviour
     void setPkgNum(){   // set pkg number limit due to level
         switch(PubVar.playerLevel){
             case 1:
-                PubVar.pkgNum = 4;
+                PubVar.pkgNum = PubVar.pkglimit;
                 break;
             case 2:
-                PubVar.pkgNum = 5;
+                PubVar.pkgNum = PubVar.pkglimit + 1;
                 break;
             case 3:
-                PubVar.pkgNum = 6;
+                PubVar.pkgNum = PubVar.pkglimit + 2;
                 break;
         }
         Debug.Log(PubVar.pkgNum);

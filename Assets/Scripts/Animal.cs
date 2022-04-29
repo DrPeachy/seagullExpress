@@ -24,14 +24,17 @@ public class Animal
     }
     
     public package orderPkg(){
+        StaticTime dueTime = new StaticTime(Random.Range(9,24), Random.Range(0,61));
+        int weightVal = Random.Range(1, 31);
+        int income = (int)(PubVar.pkgBaseIncome * (weightVal / 30f) * (14f / dueTime.hr));
         package pkg = new package(wishlist[Random.Range(0, wishlist.Length)],   //name
-                                            Random.Range(1000,10000),           //id
-                                            -1,                                 //state
-                                            this,                               //receiver
-                                            address, 
-                                            new StaticTime(Random.Range(10,24), Random.Range(0,61)), //due
-                                            Random.Range(60, 501),              //income($)
-                                            Random.Range(1, 31));               //weight(kilogram)
+                                    Random.Range(1000,10000),                   //id
+                                    -1,                                         //state
+                                    this,                                       //receiver
+                                    address, 
+                                    dueTime,                                    //due
+                                    income,                                     //income($)
+                                    weightVal);                                 //weight(kilogram)
 
         return pkg;
     }
