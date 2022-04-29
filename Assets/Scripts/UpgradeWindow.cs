@@ -117,6 +117,8 @@ public class UpgradeWindow : MonoBehaviour
             PubVar.upgrades[index].isPurchased = true;
 
         }else{
+            PubVar.upgrades[index].info = PubVar.upgrades[index].ToString();
+            PubVar.upgrades[index].isPurchased = false;
             upgradeText.text += "You don't have enough money!\n";
             StartCoroutine(ClearText());
         }
