@@ -46,6 +46,10 @@ public class DeliveryEnd : MonoBehaviour
         PubVar.packages = null;
         PubVar.checkPoint = PubVar.originPoint;
         PubVar.flagShop = false;
+        foreach(Upgrade i in PubVar.upgrades){
+            i.info = null;
+            i.isPurchased = false;
+        }
 
         
         // set player level -> increase pkg limit

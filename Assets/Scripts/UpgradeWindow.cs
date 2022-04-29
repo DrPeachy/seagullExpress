@@ -40,6 +40,8 @@ public class UpgradeWindow : MonoBehaviour
             Debug.Log("start initialize shop");
             InitializeShop();
             PubVar.flagShop = true;
+        }else{
+            DisplayShop();
         }
         gameObject.SetActive(false);
         
@@ -71,6 +73,23 @@ public class UpgradeWindow : MonoBehaviour
         }
     }
 
+    void DisplayShop(){
+        slots = transform.Find("slots");
+        for(int i = 0; i < 5; i++){
+            upInfos[i] = slots.Find("slot" + i).Find("upInfo").GetComponent<TextMeshProUGUI>();
+            upInfos[i].text = PubVar.upgrades[i].info;
+            purchaseButtons[i].SetActive(true);
+            purchaseButtons[i].GetComponent<Button>().interactable = true;
+            if(PubVar.upgrades[i].isPurchased){
+                purchaseButtons[i].GetComponent<Button>().interactable = false;
+                purchaseButtons[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "purchased";
+            }else if((PubVar.upgrades[i].limit+1) == PubVar.upgrades[i].level){
+                purchaseButtons[i].GetComponent<Button>().interactable = false;
+                purchaseButtons[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "No upgrade available";
+            }
+        }
+    }
+
     public void Purchase(int index){
         if(PubVar.upgrades[index].CostMoney()){
             PubVar.upgrades[index].NextBlock();
@@ -94,6 +113,8 @@ public class UpgradeWindow : MonoBehaviour
                     break;
             }
             StartCoroutine(ClearText());
+            PubVar.upgrades[index].info = PubVar.upgrades[index].ToString();
+            PubVar.upgrades[index].isPurchased = true;
 
         }else{
             upgradeText.text += "You don't have enough money!\n";
