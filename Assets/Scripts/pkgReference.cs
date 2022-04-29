@@ -43,7 +43,7 @@ public class pkgReference : MonoBehaviour
             Debug.Log(Physics2D.OverlapCircle(transform.position, 5f, detectLayer));
             Collider2D deliveryPoint = Physics2D.OverlapCircle(transform.position, 1f, detectLayer);
             if(deliveryPoint != null &&
-                deliveryPoint.GetComponent<DeliveryPoint>().code == SceneManager.GetActiveScene().name){
+                deliveryPoint.GetComponent<DeliveryPoint>().code == location){
                 // set state before deliver
                 if(PubVar.packages[index].UpdateState())
                     PubVar.packages[index].state = 3;

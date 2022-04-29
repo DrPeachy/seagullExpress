@@ -23,7 +23,7 @@ public class UILoader : MonoBehaviour
     private void FixedUpdate() {
 
         if(_playerAction.PlayerControl.Interact.IsPressed()){
-            if(Physics2D.OverlapBox(transform.position, new Vector2(1, 3), 0f, playerMask)){
+            if(Physics2D.OverlapBox(transform.position, new Vector2(3, 10), 0f, playerMask)){
                 soundManagerScript.playSound("clickUI");    
                 oldUI.SetActive(false);
                 newUI.SetActive(true);         
