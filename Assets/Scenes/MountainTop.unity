@@ -1494,7 +1494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8640355276956989556, guid: 6934e075794e0744682b6127067050bf, type: 3}
       propertyPath: code
-      value: MountainTop
+      value: mountain top
       objectReference: {fileID: 0}
     - target: {fileID: 8640355276956989557, guid: 6934e075794e0744682b6127067050bf, type: 3}
       propertyPath: m_RootOrder

@@ -9,6 +9,7 @@ public class pkgReference : MonoBehaviour
     public string location;
     private int index = 0;
     public LayerMask detectLayer;
+    public LayerMask playerLayer;
 
     
     private void Awake() {
@@ -39,11 +40,10 @@ public class pkgReference : MonoBehaviour
     }
     private void Update() {
         if(_playerAction.PlayerControl.Interact.IsPressed()){                       // check if succeed to deliver
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.forward, 0.5f);
-            Debug.Log(Physics2D.OverlapCircle(transform.position, 5f, detectLayer));
-            Collider2D deliveryPoint = Physics2D.OverlapCircle(transform.position, 1f, detectLayer);
-            if(deliveryPoint != null &&
-                deliveryPoint.GetComponent<DeliveryPoint>().code == location){
+
+            Collider2D collideObj;
+            if((collideObj = Physics2D.OverlapBox(transform.position, new Vector2(4, 10), 0f, detectLayer)) != null &&
+                collideObj.GetComponent<DeliveryPoint>().code == location){
                 // set state before deliver
                 if(PubVar.packages[index].UpdateState())
                     PubVar.packages[index].state = 3;
@@ -52,7 +52,7 @@ public class pkgReference : MonoBehaviour
                 Debug.Log($"{PubVar.packages[index].id} is {PubVar.packages[index].GetState()}");
                 checkAllPkg();
             }
-            if(hit.collider != null && hit.collider.CompareTag("Player")){           // pick up pkg
+            else if((collideObj = Physics2D.OverlapBox(transform.position, new Vector2(4, 10), 0f, playerLayer)) != null){           // pick up pkg
                 soundManagerScript.playSound("boxPick");
                 PubVar.packages[index].state = 1;
                 PubVar.playerWeight += PubVar.packages[index].weight;
