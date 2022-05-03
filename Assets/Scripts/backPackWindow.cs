@@ -68,10 +68,6 @@ public class backPackWindow : MonoBehaviour
 
     public void Drop(int x){
         setWeightSpd(x);
-        // create new pkg prefab
-        GameObject newPkg = Instantiate(pkgPrefab.gameObject, new Vector3(_player.transform.position.x,1,0), Quaternion.Euler(0,0,0));
-        newPkg.name = PubVar.packages[x].id + "";
-        newPkg.transform.GetChild(0).GetComponent<SpriteRenderer>().color = PubVar.packages[x].color;
 
         // update backpack page
         slots.Find("slot" + x).GetComponent<Image>().color = Color.white;
@@ -80,7 +76,13 @@ public class backPackWindow : MonoBehaviour
         // dont drop pkg in openworld!!!
         if(SceneManager.GetActiveScene().name == "OpenWorld")
             PubVar.packages[x].getHit(100);
-        else PubVar.packages[x].state = 2;
+        else{
+            PubVar.packages[x].state = 2;
+            // create new pkg prefab
+            GameObject newPkg = Instantiate(pkgPrefab.gameObject, new Vector3(_player.transform.position.x, _player.transform.position.y - 1.5f,0), Quaternion.Euler(0,0,0));
+            newPkg.name = PubVar.packages[x].id + "";
+            newPkg.transform.GetChild(0).GetComponent<SpriteRenderer>().color = PubVar.packages[x].color;
+        }
     }
 
     public void setWeightSpd(int x){

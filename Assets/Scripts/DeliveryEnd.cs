@@ -13,7 +13,7 @@ public class DeliveryEnd : MonoBehaviour
     void Start()
     {   
         int pkgPickedUp = 0;
-        foreach (package p in PubVar.packages) {
+        foreach (package p in PubVar.packages?? new package[0]) {
             if (p.GetState() != "Not Available" && p.GetState() != "Available") {
                 pkgPickedUp += 1;
                 totalPay += p.Results(ref results);
@@ -44,6 +44,7 @@ public class DeliveryEnd : MonoBehaviour
 
     private void OnDestroy() {
         PubVar.packages = null;
+        print("pkg null");
         PubVar.checkPoint = PubVar.originPoint;
         PubVar.flagShop = false;
         foreach(Upgrade i in PubVar.upgrades){

@@ -35,7 +35,20 @@ public class pkgReference : MonoBehaviour
         }
         PubVar.packages[index].dropPos = transform.position;
 
-        checkAllPkg();
+        if(true){
+            Collider2D collideObj;
+            if((collideObj = Physics2D.OverlapBox(transform.position, new Vector2(3, 10), 0f, detectLayer)) != null &&
+                collideObj.GetComponent<DeliveryPoint>().code == location){
+                // set state before deliver
+                if(PubVar.packages[index].UpdateState())
+                    PubVar.packages[index].state = 3;
+                // disable pkg prefab
+                GetComponent<pkgReference>().enabled = false;
+                Debug.Log($"{PubVar.packages[index].id} is {PubVar.packages[index].GetState()}");
+                checkAllPkg();
+            }  
+        }
+
 
     }
     private void Update() {
