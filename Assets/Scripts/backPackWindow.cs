@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class backPackWindow : MonoBehaviour
 {
@@ -58,6 +59,7 @@ public class backPackWindow : MonoBehaviour
                 PubVar.packages[i].state == 4 ||
                 PubVar.packages[i].state == 5){
                 dropButtons[i].SetActive(true);
+                slots.Find("slot" + i).GetComponent<Image>().color = PubVar.packages[i].color;
                 pkgInfos[i] = slots.Find("slot" + i).Find("pkgInfo").GetComponent<TextMeshProUGUI>();
                 pkgInfos[i].text = PubVar.packages[i].BackpackString();
             }
@@ -72,6 +74,7 @@ public class backPackWindow : MonoBehaviour
         newPkg.transform.GetChild(0).GetComponent<SpriteRenderer>().color = PubVar.packages[x].color;
 
         // update backpack page
+        slots.Find("slot" + x).GetComponent<Image>().color = Color.white;
         pkgInfos[x].text = "";
         dropButtons[x].SetActive(false);
         // dont drop pkg in openworld!!!

@@ -64,6 +64,7 @@ public class pkgSelectWindow : MonoBehaviour
                 slots.Find("slot" + i).gameObject.SetActive(false);
                 continue;
             }
+            slots.Find("slot" + i).GetComponent<Image>().color = pkgs[i].color;
             texts[i] = slots.Find("slot" + i).Find("pkgInfo").GetComponent<TextMeshProUGUI>();
             //display pkgs' info
             texts[i].text = pkgs[i].ToString();

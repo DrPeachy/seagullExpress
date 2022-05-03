@@ -42,7 +42,7 @@ public class pkgReference : MonoBehaviour
         if(_playerAction.PlayerControl.Interact.IsPressed()){                       // check if succeed to deliver
 
             Collider2D collideObj;
-            if((collideObj = Physics2D.OverlapBox(transform.position, new Vector2(4, 10), 0f, detectLayer)) != null &&
+            if((collideObj = Physics2D.OverlapBox(transform.position, new Vector2(3, 10), 0f, detectLayer)) != null &&
                 collideObj.GetComponent<DeliveryPoint>().code == location){
                 // set state before deliver
                 if(PubVar.packages[index].UpdateState())
@@ -52,7 +52,7 @@ public class pkgReference : MonoBehaviour
                 Debug.Log($"{PubVar.packages[index].id} is {PubVar.packages[index].GetState()}");
                 checkAllPkg();
             }
-            else if((collideObj = Physics2D.OverlapBox(transform.position, new Vector2(4, 10), 0f, playerLayer)) != null){           // pick up pkg
+            else if((collideObj = Physics2D.OverlapBox(transform.position, new Vector2(3, 10), 0f, playerLayer)) != null){           // pick up pkg
                 soundManagerScript.playSound("boxPick");
                 PubVar.packages[index].state = 1;
                 PubVar.playerWeight += PubVar.packages[index].weight;
