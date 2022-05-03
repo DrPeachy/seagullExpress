@@ -20,9 +20,9 @@ public class DifficultyManager : MonoBehaviour
     }
     public void SetHard(){
         PubVar.realTimeForMin = 0.18f;
-        PubVar.damage = 30f;
+        PubVar.damage = 40f;
         PubVar.movSpeed = 5f;
-        PubVar.pkgBaseIncome = 500f;     
+        PubVar.pkgBaseIncome = 400f;     
     }
 
 

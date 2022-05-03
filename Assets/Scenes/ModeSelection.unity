@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: 169274744}
   - component: {fileID: 169274746}
   - component: {fileID: 169274745}
+  - component: {fileID: 169274747}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -363,6 +364,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 169274743}
   m_CullTransparentMesh: 1
+--- !u!225 &169274747
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169274743}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &369850920
 GameObject:
   m_ObjectHideFlags: 0
@@ -1928,8 +1941,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1628378816}
   - {fileID: 1805348306}
+  - {fileID: 1628378816}
   m_Father: {fileID: 1763308913}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2010,7 +2023,7 @@ RectTransform:
   m_Children:
   - {fileID: 631264264}
   m_Father: {fileID: 1534454711}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -2147,6 +2160,7 @@ GameObject:
   - component: {fileID: 1723193595}
   - component: {fileID: 1723193597}
   - component: {fileID: 1723193596}
+  - component: {fileID: 1723193598}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2275,6 +2289,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1723193594}
   m_CullTransparentMesh: 1
+--- !u!225 &1723193598
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723193594}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1763308912
 GameObject:
   m_ObjectHideFlags: 0
@@ -2451,6 +2477,7 @@ GameObject:
   - component: {fileID: 1805348306}
   - component: {fileID: 1805348308}
   - component: {fileID: 1805348307}
+  - component: {fileID: 1805348309}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2471,7 +2498,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1534454711}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2579,3 +2606,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805348305}
   m_CullTransparentMesh: 1
+--- !u!225 &1805348309
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805348305}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0

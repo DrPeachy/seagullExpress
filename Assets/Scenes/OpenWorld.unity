@@ -726,6 +726,11 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &992770840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7818535414286391104, guid: 881337691bbcba74da216b5e1b07f066, type: 3}
+  m_PrefabInstance: {fileID: 8294300972529675395}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1088341259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1086,7 +1091,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2, y: 1}
+    m_SensorSize: {x: 2.0555556, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1706,6 +1711,10 @@ MonoBehaviour:
   BagUI: {fileID: 857295940}
   animator: {fileID: 1865970336}
   dmgText: {fileID: 1545743597}
+  sceneloaderMask:
+    serializedVersion: 2
+    m_Bits: 128
+  interactButton: {fileID: 992770840}
 --- !u!212 &1865970334
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -33,16 +33,14 @@ public class SceneLoader : MonoBehaviour
 
             if(SceneManager.GetActiveScene().name == "OpenWorld"){  // openWorld
                 Collider2D hit;
-                if(hit = Physics2D.OverlapCircle(transform.position, 3, playerMask)){
+                if(hit = Physics2D.OverlapCircle(transform.position, 4f, playerMask)){
                     flag = false;
                     PubVar.checkPoint = hit.transform.position;
                     StartCoroutine(LoadSceneWithAni());
                 }
             }
             else{                                                   // platformer
-                // RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, playerMask);
-                // Debug.DrawRay(transform.position , Vector2.right, Color.red);
-                // StartCoroutine(LoadSceneWithAni());
+
                 Collider2D hit;
                 if(hit = Physics2D.OverlapBox(transform.position, new Vector2(2, 2) , 0f, playerMask)){
                     flag = false;

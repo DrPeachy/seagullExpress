@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 213561495}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: AnimationLoader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 486865629}
   - component: {fileID: 486865628}
   - component: {fileID: 486865627}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: transition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 1652698605}
   - component: {fileID: 1652698604}
   - component: {fileID: 1652698607}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: LogoCross
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 5016927662810921321}
   - component: {fileID: 5016927662810921319}
   - component: {fileID: 6091421589623918678}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: sceneLoader
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -14,6 +14,10 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public TextMeshProUGUI dmgText;
 
+    // interact button toggle
+    public LayerMask sceneloaderMask;
+    public GameObject interactButton;
+
     private void Awake() {
         bagCode = BagUI.GetComponent<backPackWindow>();
         _playerAction = new PlayerAction();
@@ -36,6 +40,18 @@ public class PlayerController : MonoBehaviour
         if(dmgText) dmgText.text = "";
     }
     private void FixedUpdate() {
+        // activate/deactive interact button
+        if(interactButton != null){
+            Collider2D hit = Physics2D.OverlapCircle(transform.position, 5f, sceneloaderMask);
+            if(hit){
+                interactButton.SetActive(true);
+                print("activate button");
+            }
+            else{
+                interactButton.SetActive(false);
+                print("deactivate button");
+            }
+        }
 
         // open backpack
         if(_playerAction.PlayerControl.OpenBag.IsPressed()){
