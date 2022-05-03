@@ -18,6 +18,9 @@ public class create_objects : MonoBehaviour
     float y;
     public int objLimit = 11;
     private void Start() {
+        // turn off generator in easy mode
+        if(!PubVar.hasObstacle) gameObject.SetActive(false);
+        //
         _obj_rd = objects_to_create.GetComponent<Renderer>();
         maincam = Camera.main;
         StartCoroutine(create());

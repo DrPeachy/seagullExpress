@@ -833,7 +833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b740e42833b088443a61bcdc3b8c5dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: PackageCenter
+  sceneName: ModeSelection
 --- !u!1 &1389135913
 GameObject:
   m_ObjectHideFlags: 0

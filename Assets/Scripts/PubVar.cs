@@ -17,6 +17,7 @@ public static class PubVar
     public static Vector3 originPoint = new Vector3(10, -25, 0);
 
     //========variable for upgrade=====
+    public static bool hasObstacle = true;
     public static float realTimeForMin = 0.2f;
     public static float movSpeed = 5;
     public static float actualSpeed = movSpeed;
