@@ -109,6 +109,7 @@ public class pkgSelectWindow : MonoBehaviour
                 // drop packages on the floor
                 GameObject newPkg = Instantiate(pkgPrefab, firstPos + i * dif, Quaternion.Euler(0, 0, 0));
                 newPkg.name = PubVar.packages[i].id + "";
+                newPkg.transform.GetChild(0).GetComponent<SpriteRenderer>().color = PubVar.packages[i].color;
             }
         }
     }

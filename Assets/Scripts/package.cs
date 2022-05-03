@@ -16,6 +16,7 @@ public class package
         public float integrity {get;set;}
         public Vector3 dropPos {get;set;}
         public string dropScene {get;set;}
+        public Color color {get;set;}
 
     /*
         -1: not avaible, 0: avaible, 1: delivering, 2: dropped, 3: delivered, 4: broken, 5: past due
@@ -31,6 +32,10 @@ public class package
             weight = aWeight;
             integrity = 100;
             setRequirement();
+            this.color = new Color(
+                Random.Range(0f, 1f), 
+                Random.Range(0f, 1f), 
+                Random.Range(0f, 1f));
         }
 
         public override string ToString(){

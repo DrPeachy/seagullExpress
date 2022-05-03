@@ -69,6 +69,7 @@ public class backPackWindow : MonoBehaviour
         // create new pkg prefab
         GameObject newPkg = Instantiate(pkgPrefab.gameObject, new Vector3(_player.transform.position.x,1,0), Quaternion.Euler(0,0,0));
         newPkg.name = PubVar.packages[x].id + "";
+        newPkg.transform.GetChild(0).GetComponent<SpriteRenderer>().color = PubVar.packages[x].color;
 
         // update backpack page
         pkgInfos[x].text = "";
