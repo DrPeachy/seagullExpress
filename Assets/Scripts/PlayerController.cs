@@ -45,11 +45,11 @@ public class PlayerController : MonoBehaviour
             Collider2D hit = Physics2D.OverlapCircle(transform.position, 5f, sceneloaderMask);
             if(hit){
                 interactButton.SetActive(true);
-                print("activate button");
+                //print("activate button");
             }
             else{
                 interactButton.SetActive(false);
-                print("deactivate button");
+                //print("deactivate button");
             }
         }
 
