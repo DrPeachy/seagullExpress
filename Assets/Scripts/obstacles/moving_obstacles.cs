@@ -32,7 +32,6 @@ public class moving_obstacles : MonoBehaviour
         }
         print(transform.up);
         if((Time.time - start_time < 60) && (Time.time - start_time > 5)){
-            wait();
             if(!transform.position.in_camera(Camera.main)){
                 moving_obs_generator.current_num_of_mo--;
                 Destroy(gameObject);
