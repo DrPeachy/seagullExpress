@@ -45,8 +45,7 @@ public class package
                         + "\n\nto: " + receiver.name
                         + "\naddress: " + address
                         + "\n\nship before: " + due
-                        + "\nincome: $" + income
-                        + (checkAvailable()? "\navailable" : $"\nrequirement: {requirement}");
+                        + "\nincome: $" + income;
         }
 
         public string BackpackString(){

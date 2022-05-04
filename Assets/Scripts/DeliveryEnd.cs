@@ -26,6 +26,7 @@ public class DeliveryEnd : MonoBehaviour
         }
         results += $" \nTotal Pay: ${totalPay:.}";
         PubVar.money += totalPay;
+        if(PubVar.money < 0) PubVar.money = 0;
 
         // StartCoroutine(printText(results));
     }
