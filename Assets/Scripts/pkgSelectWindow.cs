@@ -83,7 +83,6 @@ public class pkgSelectWindow : MonoBehaviour
             }
         }
         if(flag == 0){
-
             SceneManager.LoadScene("DeliveryEnd");
         }
     }

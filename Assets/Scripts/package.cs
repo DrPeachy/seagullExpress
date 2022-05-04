@@ -31,7 +31,7 @@ public class package
             income = aIncome;
             weight = aWeight;
             integrity = 100;
-            //setRequirement();
+            setRequirement();
             this.color = new Color(
                 Random.Range(0.3f, 1f), 
                 Random.Range(0.3f, 1f), 
@@ -67,13 +67,8 @@ public class package
         }
 
         private void setRequirement(){
-            if(due.hr < 9 && income > 400 && weight > 25) requirement = "plane";
-            else if(due.hr < 10 && income > 300 && weight > 20) requirement = "jetpack";
-            else{
-                this.state = 0;
-                requirement = null;
-            }
-
+            this.state = 0;
+            requirement = null;
         }
         
         public string getHit(float num){
