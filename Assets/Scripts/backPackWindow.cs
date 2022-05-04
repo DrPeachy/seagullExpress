@@ -58,7 +58,8 @@ public class backPackWindow : MonoBehaviour
             if(PubVar.packages[i].state == 1 ||
                 PubVar.packages[i].state == 4 ||
                 PubVar.packages[i].state == 5){
-                dropButtons[i].SetActive(true);
+                if(SceneManager.GetActiveScene().name == "OpenWorld") dropButtons[i].SetActive(false);
+                else dropButtons[i].SetActive(true);
                 slots.Find("slot" + i).GetComponent<Image>().color = PubVar.packages[i].color;
                 pkgInfos[i] = slots.Find("slot" + i).Find("pkgInfo").GetComponent<TextMeshProUGUI>();
                 pkgInfos[i].text = PubVar.packages[i].BackpackString();
@@ -74,8 +75,10 @@ public class backPackWindow : MonoBehaviour
         pkgInfos[x].text = "";
         dropButtons[x].SetActive(false);
         // dont drop pkg in openworld!!!
-        if(SceneManager.GetActiveScene().name == "OpenWorld")
+        if(SceneManager.GetActiveScene().name == "OpenWorld"){
             PubVar.packages[x].getHit(100);
+            PubVar.packages[x].state = 2;
+        }
         else{
             PubVar.packages[x].state = 2;
             // create new pkg prefab

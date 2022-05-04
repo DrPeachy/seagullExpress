@@ -31,7 +31,7 @@ public class package
             income = aIncome;
             weight = aWeight;
             integrity = 100;
-            setRequirement();
+            //setRequirement();
             this.color = new Color(
                 Random.Range(0.3f, 1f), 
                 Random.Range(0.3f, 1f), 

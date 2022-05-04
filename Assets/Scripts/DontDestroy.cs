@@ -14,9 +14,10 @@ public class DontDestroy : MonoBehaviour
     private Pos[] allPos;
     private void Start() {
         foreach(var i in PubVar.packages ?? new package[0]){
-            if(i.dropPos != Vector3.zero && i.dropScene == SceneManager.GetActiveScene().name && i.state == 2){
-                GameObject newPkg = Instantiate(pkgPrefab.gameObject, i.dropPos, Quaternion.Euler(0,0,0));
+            if(SceneManager.GetActiveScene().name != "OpenWorld" && i.dropPos != Vector3.zero && i.dropScene == SceneManager.GetActiveScene().name && i.state == 2){
+                GameObject newPkg = Instantiate(pkgPrefab.gameObject, i.dropPos, Quaternion.Euler(0,0,0));             
                 newPkg.name = i.id + "";
+                newPkg.transform.GetChild(0).GetComponent<SpriteRenderer>().color = i.color;
                 i.dropPos = Vector3.zero;
                 i.dropScene = null;
             }
