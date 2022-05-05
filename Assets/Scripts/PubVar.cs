@@ -28,11 +28,11 @@ public static class PubVar
     public static bool flagShop = false;
 
     public static Upgrade[] upgrades = {
-        new Upgrade("SpeedUp", 200, 3, "You will be granted with a permanent speed up with this turbo charger, and be careful during your flight."),
-        new Upgrade("DmgDown", 200, 3, "With the Wno reverse card, the damage recevied by your package will be reduced."),
-        new Upgrade("SlowerTime", 200, 3, "Except from the red and blue pill, you can choose this green pill. It makes you feel time flows slower."),
-        new Upgrade("RandomUpgrade", 150, 50, "No one knows what is inside this gashapon machine."),
-        new Upgrade("PackageLimit + 1", 1500, 1, "Your boss will grant you one more choice(You can do more delivery now!)")
+        new Upgrade("SpeedUp", 300, 3, "You will be granted with a permanent speed up with this turbo charger, and be careful during your flight."),
+        new Upgrade("DmgDown", 300, 3, "With the Wno reverse card, the damage recevied by your package will be reduced."),
+        new Upgrade("SlowerTime", 300, 3, "Except from the red and blue pill, you can choose this green pill. It makes you feel time flows slower."),
+        new Upgrade("RandomUpgrade", 200, 50, "No one knows what is inside this gashapon machine."),
+        new Upgrade("PackageLimit + 1", 1000, 1, "Your boss will grant you one more choice(You can do more delivery now!)")
     };
 
     //===========timer===============

@@ -12,7 +12,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
   - DeliveryPoint
@@ -20,7 +20,7 @@ TagManager:
   - Obstacles
   - Deliveryman
   - WindZone
-  - 
+  - Player
   - 
   - 
   - 
