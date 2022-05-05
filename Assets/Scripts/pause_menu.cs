@@ -53,6 +53,12 @@ public class pause_menu : MonoBehaviour
 
     public void switch_sound_status(){
         PubVar.sound_on = !PubVar.sound_on;
+        if(PubVar.sound_on == true){
+            AudioListener.volume = 1;
+        }
+        else{
+            AudioListener.volume = 0;
+        }
     }
 
     public void quit(){
