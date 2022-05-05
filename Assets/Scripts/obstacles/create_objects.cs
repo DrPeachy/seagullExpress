@@ -6,7 +6,8 @@ public class create_objects : MonoBehaviour
 {
     public GameObject objects_to_create;
     public GameObject objects_to_create2;
-    public float cool_down;
+    public float cool_down_single;
+    public float cool_down_multiple;
     public int nums_to_create_each_time;
     public bool keep_creating = true;
     Renderer _obj_rd;
@@ -41,18 +42,18 @@ public class create_objects : MonoBehaviour
             i = 0;
             if(j < objLimit) create_objects_once();
             print("create");
-            yield return new WaitForSeconds(cool_down);
+            yield return new WaitForSeconds(cool_down_multiple);
         }
     }
 
     void create_objects_once(){
         while(i < nums_to_create_each_time){
             // 20 and 10 are the camera size, which are constant
-            x = Random.Range(maincam.transform.position.x - 30, maincam.transform.position.x + 30);
-            y = Random.Range(maincam.transform.position.y - 20, maincam.transform.position.y + 20);
+            x = Random.Range(maincam.transform.position.x - 35, maincam.transform.position.x + 35);
+            y = Random.Range(maincam.transform.position.y - 25, maincam.transform.position.y + 25);
             Vector2 pos = new Vector2(x,y);
             Vector2 temp = maincam.WorldToViewportPoint(pos);
-            if(temp.x>=-.2f && temp.x<=1.2f && temp.y>=-0.2f && temp.y<=1.2f){
+            if(Physics2D.OverlapBox(pos, _obj_rd.bounds.size, 0f) && temp.x>=-.2f && temp.x<=1.2f && temp.y>=-0.2f && temp.y<=1.2f){
                 print("cannot instantiate");
                 continue;
             } else {
@@ -69,8 +70,9 @@ public class create_objects : MonoBehaviour
     IEnumerator deleteAfter(GameObject obj){
         bool flag = true;
         while(flag){
-            yield return new WaitForSeconds(cool_down);
-            if(Vector2.Distance(maincam.transform.position, obj.transform.position) > 20){
+            yield return new WaitForSeconds(cool_down_single);
+            Vector2 temp = maincam.WorldToViewportPoint(obj.transform.position);
+            if(temp.x<=-.2f || temp.x>=1.2f || temp.y<=-0.2f || temp.y>=1.2f){
                     Destroy(obj);
                     j--;
                     flag = false;

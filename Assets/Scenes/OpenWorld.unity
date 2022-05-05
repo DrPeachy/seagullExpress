@@ -609,7 +609,6 @@ GameObject:
   m_Component:
   - component: {fileID: 557109597}
   - component: {fileID: 557109596}
-  - component: {fileID: 557109595}
   m_Layer: 0
   m_Name: minimapCamera
   m_TagString: Untagged
@@ -617,14 +616,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &557109595
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 557109594}
-  m_Enabled: 1
 --- !u!20 &557109596
 Camera:
   m_ObjectHideFlags: 0
@@ -1014,14 +1005,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 813691076}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 282dfea9d5f32af43b35695c0ce6baaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objects_to_create: {fileID: 5914316146101203299, guid: 41d08446b9fb03647959b7b2c415bb85, type: 3}
   objects_to_create2: {fileID: 0}
-  cool_down: 3
+  cool_down_single: 4
+  cool_down_multiple: 1
   nums_to_create_each_time: 2
   keep_creating: 1
   objLimit: 7
