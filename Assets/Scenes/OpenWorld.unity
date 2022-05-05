@@ -1021,10 +1021,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects_to_create: {fileID: 5914316146101203299, guid: 41d08446b9fb03647959b7b2c415bb85, type: 3}
   objects_to_create2: {fileID: 0}
-  cool_down: 1
-  nums_to_create_each_time: 4
+  cool_down: 3
+  nums_to_create_each_time: 2
   keep_creating: 1
-  objLimit: 11
+  objLimit: 7
 --- !u!60 &813691080
 PolygonCollider2D:
   m_ObjectHideFlags: 0
