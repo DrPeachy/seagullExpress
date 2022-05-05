@@ -25,6 +25,7 @@ public class UpgradeWindow : MonoBehaviour
 
     private void OnDisable() {
         _playerAction.Disable();
+        upgradeText.text = "";
     }
 
     void Start()
@@ -98,29 +99,29 @@ public class UpgradeWindow : MonoBehaviour
             purchaseButtons[index].GetComponent<Button>().interactable = false;
             switch(index){
                 case 0:
-                    upgradeText.text += PubVar.upgrades[index].Spdup();
+                    upgradeText.text = PubVar.upgrades[index].Spdup();
                     break;
                 case 1:
-                    upgradeText.text += PubVar.upgrades[index].Dmgdown();
+                    upgradeText.text = PubVar.upgrades[index].Dmgdown();
                     break;
                 case 2:
-                    upgradeText.text += PubVar.upgrades[index].SlowerTime();
+                    upgradeText.text = PubVar.upgrades[index].SlowerTime();
                     break;
                 case 3:
-                    upgradeText.text += PubVar.upgrades[index].RandomUpgrade();
+                    upgradeText.text = PubVar.upgrades[index].RandomUpgrade();
                     break;
                 case 4:
-                    upgradeText.text += PubVar.upgrades[index].PkgLimitUp();
+                    upgradeText.text = PubVar.upgrades[index].PkgLimitUp();
                     break;
             }
-            StartCoroutine(ClearText());
             PubVar.upgrades[index].info = PubVar.upgrades[index].ToString();
             PubVar.upgrades[index].isPurchased = true;
+            StartCoroutine(ClearText());
 
         }else{
             PubVar.upgrades[index].info = PubVar.upgrades[index].ToString();
             PubVar.upgrades[index].isPurchased = false;
-            upgradeText.text += "You don't have enough money!\n";
+            upgradeText.text = "You don't have enough money!\n";
             StartCoroutine(ClearText());
         }
         moneyText.text = $"Money: {PubVar.money:.}";
@@ -128,9 +129,12 @@ public class UpgradeWindow : MonoBehaviour
     
 
     IEnumerator ClearText(){
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         upgradeText.text = "";
     }
+
+
+
 
 
 }

@@ -112,7 +112,7 @@ public class package
             float payOut = (income * (integrity/100));
 
             if (GetState() == "Late") {
-                payOut = (payOut * 0.2f);
+                payOut = (payOut * 0.88f);
             }
             if(GetState() == "Delivered"){
                 PubVar.deliveredPkg ++;
