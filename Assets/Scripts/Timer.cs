@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
@@ -10,12 +11,14 @@ public class Timer : MonoBehaviour
     public int minCountToUpdate = 15;
     private int minCounter;
     public TextMeshProUGUI timerUI;
-
+    public Image skybox;
+    private CanvasGroup skyColor;
 
     private void Awake() {
         PubVar.initTime = new StaticTime(7, 0);
         timer = PubVar.realTimeForMin;
         minCounter = minCountToUpdate;
+        skyColor = skybox.GetComponent<CanvasGroup>();
     }
 
     private void Start() {
@@ -41,6 +44,9 @@ public class Timer : MonoBehaviour
         if(SceneManager.GetActiveScene().name == "DeliveryEnd"){    // if finish task in time, load end scene
             Destroy(gameObject);
         }
+
+        if(PubVar.initTime.hr >= 17) skyColor.alpha += Time.deltaTime * (0.002f/PubVar.realTimeForMin);
+
     }
 
 }

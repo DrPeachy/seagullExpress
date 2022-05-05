@@ -55,9 +55,7 @@ public class backPackWindow : MonoBehaviour
                 slots.Find("slot" + i).gameObject.SetActive(false);
                 continue;
             }
-            if(PubVar.packages[i].state == 1 ||
-                PubVar.packages[i].state == 4 ||
-                PubVar.packages[i].state == 5){
+            if(PubVar.packages[i].state == 1){
                 if(SceneManager.GetActiveScene().name == "OpenWorld") dropButtons[i].SetActive(false);
                 else dropButtons[i].SetActive(true);
                 slots.Find("slot" + i).GetComponent<Image>().color = PubVar.packages[i].color;
