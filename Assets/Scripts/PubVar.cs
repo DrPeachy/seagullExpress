@@ -13,8 +13,8 @@ public static class PubVar
     public static int playerLevel = 1;
     public static int deliveredPkg = 0;
 
-    public static Vector3 checkPoint = new Vector3(10, -25, 0);
-    public static Vector3 originPoint = new Vector3(10, -25, 0);
+    public static Vector3 checkPoint = new Vector3(35, -20, 0);
+    public static Vector3 originPoint = new Vector3(35, -20, 0);
 
     //========variable for upgrade=====
     public static bool hasObstacle = true;
