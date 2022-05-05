@@ -79,6 +79,9 @@ public class PlayerController : MonoBehaviour
             float angle = Mathf.LerpAngle(_rig.rotation, Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg - 90f, Time.deltaTime * 8);
             // set rotation
             if(moveInput != Vector2.zero) _rig.rotation = angle;
+            // set animation
+            animator.SetFloat("Speed", Mathf.Abs(moveInput.x)+Mathf.Abs(moveInput.y));
+
         }else{ // platformer control
             _rig.velocity = new Vector2(moveInput.x, 0) * PubVar.actualSpeed;
             animator.SetFloat("speed", Mathf.Abs(moveInput.x * PubVar.actualSpeed));  //testing animator

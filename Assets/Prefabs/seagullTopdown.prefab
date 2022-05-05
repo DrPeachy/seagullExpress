@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BagUI: {fileID: 0}
   animator: {fileID: 1121717399561378967}
+  _anTopdown: {fileID: 1121717399561378967}
   dmgText: {fileID: 0}
   sceneloaderMask:
     serializedVersion: 2
