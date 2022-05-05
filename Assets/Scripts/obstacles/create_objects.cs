@@ -23,11 +23,15 @@ public class create_objects : MonoBehaviour
         //
         _obj_rd = objects_to_create.GetComponent<Renderer>();
         maincam = Camera.main;
-        StartCoroutine(create());
+        //StartCoroutine(create());
     }
 
     private void Update() {
         // can add conditions to stop creating by change keep_creating
+        while(j < objLimit){
+            create_objects_once();
+            j++;
+        }
     }
 
     IEnumerator create(){
@@ -50,9 +54,7 @@ public class create_objects : MonoBehaviour
                 continue;
             } else {
                 GameObject newObj = Instantiate(objects_to_create, pos, Quaternion.identity);
-                StartCoroutine(deleteAfter(x, y, newObj));
-                i++;
-                j++;
+                //StartCoroutine(deleteAfter(x, y, newObj));
             }
         }
     }
