@@ -829,14 +829,14 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 211.6
+  far clip plane: 185
   field of view: 60
   orthographic: 1
   orthographic size: 128
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 9
+    m_Bits: 8201
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: d47b37cd8ff2de441828ad82177e535a, type: 2}
   m_TargetDisplay: 0
@@ -1211,7 +1211,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962574749}
   m_LocalRotation: {x: -0.0018087258, y: -0.015899666, z: 0.00001626298, w: -0.999872}
-  m_LocalPosition: {x: 34.68205, y: -19.963825, z: -19.994879}
+  m_LocalPosition: {x: 34.046635, y: -19.891531, z: -19.974403}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1771,7 +1771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BoundingShape2D: {fileID: 0}
+  m_BoundingShape2D: {fileID: 813691080}
   m_Damping: 0.5
   m_MaxWindowSize: -1
 --- !u!1 &1384080948
@@ -2653,7 +2653,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851795218}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: -5}
   m_LocalScale: {x: 15.27, y: 15.27, z: 15.27}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -9148,6 +9148,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1647033213}
+    - target: {fileID: 8294300973459835621, guid: 881337691bbcba74da216b5e1b07f066, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8294300974251669216, guid: 881337691bbcba74da216b5e1b07f066, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
