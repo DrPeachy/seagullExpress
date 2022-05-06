@@ -70,6 +70,26 @@ public class pause_menu : MonoBehaviour
         PubVar.pkglimit = 4;
         PubVar.initTime = new StaticTime(7, 0);
         Destroy(GameObject.FindGameObjectWithTag("Timer"));
+        PubVar.playerLevel = 1;
+        PubVar.deliveredPkg = 0;
+        PubVar.flagShop = false;
+        PubVar.money = 10;
+        PubVar.playerWeight = 0;
+
+
+        Vector3 checkPoint = new Vector3(35, -20, 0);
+        Vector3 originPoint = new Vector3(35, -20, 0);
+
+
+        PubVar.upgrades = null;
+        
+        PubVar.upgrades = new Upgrade[]{
+            new Upgrade("SpeedUp", 300, 3, "You will be granted with a permanent speed up with this turbo charger, and be careful during your flight."),
+            new Upgrade("DmgDown", 300, 3, "With the Wno reverse card, the damage recevied by your package will be reduced."),
+            new Upgrade("SlowerTime", 300, 3, "Except from the red and blue pill, you can choose this green pill. It makes you feel time flows slower."),
+            new Upgrade("RandomUpgrade", 200, 50, "No one knows what is inside this gashapon machine."),
+            new Upgrade("PackageLimit + 1", 1000, 1, "Your boss will grant you one more choice(You can do more delivery now!)")
+        };
     }
 
 }

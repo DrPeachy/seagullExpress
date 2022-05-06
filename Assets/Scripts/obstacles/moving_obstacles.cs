@@ -32,8 +32,10 @@ public class moving_obstacles : MonoBehaviour
         if(_hit || _hit_player){
             _rb.velocity = Vector2.zero;
             transform.up = transform.up.Rotate(2f);
+            _eagelAni.SetFloat("Speed", Mathf.Abs(_rb.velocity.x) + Mathf.Abs(_rb.velocity.y));
         } else {
             _rb.velocity = transform.up * speed;
+            _eagelAni.SetFloat("Speed", Mathf.Abs(_rb.velocity.x) + Mathf.Abs(_rb.velocity.y));
         }
         //print(transform.up);
         if((Time.time - start_time < 60) && (Time.time - start_time > 6)){
@@ -48,7 +50,7 @@ public class moving_obstacles : MonoBehaviour
                 //Destroy(gameObject);
             }
         }
-        _eagelAni.SetFloat("Speed", Mathf.Abs(_rb.velocity.x) + Mathf.Abs(_rb.velocity.y));
+        
     }
 
     Vector2 get_direction(){
