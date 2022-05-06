@@ -85,7 +85,8 @@ public class UpgradeWindow : MonoBehaviour
             if(PubVar.upgrades[i].isPurchased){
                 purchaseButtons[i].GetComponent<Button>().interactable = false;
                 purchaseButtons[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "purchased";
-            }else if((PubVar.upgrades[i].limit+1) == PubVar.upgrades[i].level){
+            }
+            if((PubVar.upgrades[i].limit+1) == PubVar.upgrades[i].level){
                 purchaseButtons[i].GetComponent<Button>().interactable = false;
                 purchaseButtons[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "No upgrade available";
             }
@@ -94,29 +95,31 @@ public class UpgradeWindow : MonoBehaviour
 
     public void Purchase(int index){
         if(PubVar.upgrades[index].CostMoney()){
-            PubVar.upgrades[index].NextBlock();
-            purchaseButtons[index].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "purchased";
-            purchaseButtons[index].GetComponent<Button>().interactable = false;
-            switch(index){
-                case 0:
-                    upgradeText.text = PubVar.upgrades[index].Spdup();
-                    break;
-                case 1:
-                    upgradeText.text = PubVar.upgrades[index].Dmgdown();
-                    break;
-                case 2:
-                    upgradeText.text = PubVar.upgrades[index].SlowerTime();
-                    break;
-                case 3:
-                    upgradeText.text = PubVar.upgrades[index].RandomUpgrade();
-                    break;
-                case 4:
-                    upgradeText.text = PubVar.upgrades[index].PkgLimitUp();
-                    break;
+            if(PubVar.upgrades[index].NextBlock()){
+                purchaseButtons[index].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "purchased";
+                purchaseButtons[index].GetComponent<Button>().interactable = false;
+                switch(index){
+                    case 0:
+                        upgradeText.text = PubVar.upgrades[index].Spdup();
+                        break;
+                    case 1:
+                        upgradeText.text = PubVar.upgrades[index].Dmgdown();
+                        break;
+                    case 2:
+                        upgradeText.text = PubVar.upgrades[index].SlowerTime();
+                        break;
+                    case 3:
+                        upgradeText.text = PubVar.upgrades[index].RandomUpgrade();
+                        break;
+                    case 4:
+                        upgradeText.text = PubVar.upgrades[index].PkgLimitUp();
+                        break;
+                }
+                PubVar.upgrades[index].info = PubVar.upgrades[index].ToString();
+                PubVar.upgrades[index].isPurchased = true;
+                StartCoroutine(ClearText());
             }
-            PubVar.upgrades[index].info = PubVar.upgrades[index].ToString();
-            PubVar.upgrades[index].isPurchased = true;
-            StartCoroutine(ClearText());
+            
 
         }else{
             PubVar.upgrades[index].info = PubVar.upgrades[index].ToString();

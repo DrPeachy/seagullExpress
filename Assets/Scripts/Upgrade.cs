@@ -64,6 +64,7 @@ public class Upgrade
         switch(limit){
             case 3:
                 if(level < limit){
+                    PubVar.money -= price;
                     price *= 2;
                     price += (level * 100);
                     level++;
@@ -72,8 +73,16 @@ public class Upgrade
                 return false;
             case 50:
                 if(level < limit){
+                    PubVar.money -= price;
                     price *= 1.2f;
                     price += (level * 40);
+                    level++;
+                    return true;
+                }
+                return false;
+            case 1:
+                if(level < limit){
+                    PubVar.money -= price;
                     level++;
                     return true;
                 }
@@ -84,7 +93,7 @@ public class Upgrade
 
     public bool CostMoney(){
         if(price <= PubVar.money){
-            PubVar.money -= price;
+            //PubVar.money -= price;
             return true;
         }else{
             return false;
