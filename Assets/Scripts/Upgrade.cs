@@ -63,7 +63,7 @@ public class Upgrade
     public bool NextBlock(){
         switch(limit){
             case 3:
-                if(level < limit){
+                if(level <= limit){
                     PubVar.money -= price;
                     price *= 2;
                     price += (level * 100);
@@ -72,7 +72,7 @@ public class Upgrade
                 }
                 return false;
             case 50:
-                if(level < limit){
+                if(level <= limit){
                     PubVar.money -= price;
                     price *= 1.2f;
                     price += (level * 40);
@@ -81,7 +81,7 @@ public class Upgrade
                 }
                 return false;
             case 1:
-                if(level < limit){
+                if(level <= limit){
                     PubVar.money -= price;
                     level++;
                     return true;
