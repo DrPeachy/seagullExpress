@@ -64,6 +64,11 @@ public class pause_menu : MonoBehaviour
     public void quit(){
         Resume();
         SceneManager.LoadScene("StartMenu");
+        PubVar.packages = null;
+        PubVar.money = 0;
+        PubVar.hasObstacle = true;
+        PubVar.pkglimit = 4;
+        PubVar.initTime = new StaticTime(7, 0);
     }
 
 }
