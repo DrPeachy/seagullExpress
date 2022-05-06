@@ -20,7 +20,10 @@ public class create_objects : MonoBehaviour
     public int objLimit = 11;
     private void Start() {
         // turn off generator in easy mode
-        if(!PubVar.hasObstacle) gameObject.GetComponent<create_objects>().enabled = false;
+        if(!PubVar.hasObstacle){
+            keep_creating = false;
+            gameObject.GetComponent<create_objects>().enabled = false;
+        }
         //
         _obj_rd = objects_to_create.GetComponent<Renderer>();
         maincam = Camera.main;
