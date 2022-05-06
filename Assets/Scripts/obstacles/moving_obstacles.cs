@@ -15,6 +15,7 @@ public class moving_obstacles : MonoBehaviour
     RaycastHit2D _hit;
     RaycastHit2D _hit_player;
     float start_time;
+    public Animator _eagelAni;
 
     private void Start() {
         _player = GameObject.FindGameObjectWithTag("Player");
@@ -47,6 +48,7 @@ public class moving_obstacles : MonoBehaviour
                 //Destroy(gameObject);
             }
         }
+        _eagelAni.SetFloat("Speed", Mathf.Abs(_rb.velocity.x) + Mathf.Abs(_rb.velocity.y));
     }
 
     Vector2 get_direction(){
