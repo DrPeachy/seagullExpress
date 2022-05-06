@@ -287,10 +287,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'designed for pro
 
-    challeng yourself!'
+    challenge yourself!'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 13af225d22129b0449a6fc7bd63beac8, type: 2}
+  m_sharedMaterial: {fileID: 5187006541744153418, guid: 13af225d22129b0449a6fc7bd63beac8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -512,8 +512,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: hard
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 13af225d22129b0449a6fc7bd63beac8, type: 2}
+  m_sharedMaterial: {fileID: 5187006541744153418, guid: 13af225d22129b0449a6fc7bd63beac8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -626,7 +626,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 550, y: 100}
-  m_SizeDelta: {x: 250, y: 100}
+  m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &434267478
 MonoBehaviour:
@@ -1035,8 +1035,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: normal
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 13af225d22129b0449a6fc7bd63beac8, type: 2}
+  m_sharedMaterial: {fileID: 5187006541744153418, guid: 13af225d22129b0449a6fc7bd63beac8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1330,8 +1330,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: easy
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 13af225d22129b0449a6fc7bd63beac8, type: 2}
+  m_sharedMaterial: {fileID: 5187006541744153418, guid: 13af225d22129b0449a6fc7bd63beac8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1669,8 +1669,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Return
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 13af225d22129b0449a6fc7bd63beac8, type: 2}
+  m_sharedMaterial: {fileID: 5187006541744153418, guid: 13af225d22129b0449a6fc7bd63beac8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2123,8 +2123,8 @@ MonoBehaviour:
 
     Slow time flow'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 13af225d22129b0449a6fc7bd63beac8, type: 2}
+  m_sharedMaterial: {fileID: 5187006541744153418, guid: 13af225d22129b0449a6fc7bd63beac8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2274,8 +2274,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: mode
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 13af225d22129b0449a6fc7bd63beac8, type: 2}
+  m_sharedMaterial: {fileID: 5187006541744153418, guid: 13af225d22129b0449a6fc7bd63beac8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2436,12 +2436,12 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Normal gameplay
 
-    normal timeflow
+    normal time flow
 
     normal damage'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 13af225d22129b0449a6fc7bd63beac8, type: 2}
+  m_sharedMaterial: {fileID: 5187006541744153418, guid: 13af225d22129b0449a6fc7bd63beac8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2471,7 +2471,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 30
   m_fontSizeMax: 50
-  m_fontStyle: 0
+  m_fontStyle: 16
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
