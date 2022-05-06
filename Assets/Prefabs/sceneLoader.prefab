@@ -296,7 +296,7 @@ MonoBehaviour:
   transitionTime: 1.3
   playerMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
 --- !u!212 &5016927662810921319
 SpriteRenderer:
   m_ObjectHideFlags: 0
