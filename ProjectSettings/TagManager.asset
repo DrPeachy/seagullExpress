@@ -8,6 +8,7 @@ TagManager:
   - Obstacle
   - Package
   - pause_menu
+  - Timer
   layers:
   - Default
   - TransparentFX

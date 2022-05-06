@@ -69,6 +69,7 @@ public class pause_menu : MonoBehaviour
         PubVar.hasObstacle = true;
         PubVar.pkglimit = 4;
         PubVar.initTime = new StaticTime(7, 0);
+        Destroy(GameObject.FindGameObjectWithTag("Timer"));
     }
 
 }
