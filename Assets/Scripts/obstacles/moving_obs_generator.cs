@@ -21,7 +21,9 @@ public class moving_obs_generator : MonoBehaviour
         Vector2 predict_pos = _player.transform.position.cast_to_2d() + 3 * _player_rb.velocity;
         float x = predict_pos.x;
         float y = predict_pos.y;
-        while(current_num_of_mo < num_limit){
+        int insurance = 0;
+        while(current_num_of_mo < num_limit && insurance < 65535){
+            insurance++;
             x = Random.Range(x - 20 , x + 20);
             y = Random.Range(y - 20, y + 20);
             Vector2 create_pos = new Vector2(x,y);
