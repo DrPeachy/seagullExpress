@@ -53,7 +53,7 @@ public class create_objects : MonoBehaviour
             y = Random.Range(maincam.transform.position.y - 25, maincam.transform.position.y + 25);
             Vector2 pos = new Vector2(x,y);
             Vector2 temp = maincam.WorldToViewportPoint(pos);
-            if(Physics2D.OverlapBox(pos, _obj_rd.bounds.size, 0f) && temp.x>=-.2f && temp.x<=1.2f && temp.y>=-0.2f && temp.y<=1.2f){
+            if(Physics2D.OverlapBox(pos, _obj_rd.bounds.size, 0f) && pos.rough_in_camera()){
                 print("cannot instantiate");
                 continue;
             } else {

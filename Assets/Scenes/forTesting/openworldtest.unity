@@ -133,8 +133,8 @@ GameObject:
   m_Component:
   - component: {fileID: 192375339}
   - component: {fileID: 192375338}
-  - component: {fileID: 192375340}
   - component: {fileID: 192375341}
+  - component: {fileID: 192375342}
   m_Layer: 0
   m_Name: area
   m_TagString: Untagged
@@ -209,20 +209,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &192375340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 192375337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77a2b2b5fe70905439580751c99de5fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstacle: {fileID: 5914316146101203299, guid: 41d08446b9fb03647959b7b2c415bb85, type: 3}
-  obstacle_num: 100
 --- !u!114 &192375341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,6 +228,25 @@ MonoBehaviour:
   nums_to_create_each_time: 5
   keep_creating: 1
   objLimit: 11
+--- !u!114 &192375342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192375337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 282dfea9d5f32af43b35695c0ce6baaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects_to_create: {fileID: 5914316146101203299, guid: 41d08446b9fb03647959b7b2c415bb85, type: 3}
+  objects_to_create2: {fileID: 0}
+  cool_down_single: 4
+  cool_down_multiple: 1
+  nums_to_create_each_time: 2
+  keep_creating: 1
+  objLimit: 7
 --- !u!1 &221343531
 GameObject:
   m_ObjectHideFlags: 0
