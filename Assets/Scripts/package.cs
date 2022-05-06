@@ -75,7 +75,6 @@ public class package
             if(integrity > 0) integrity -= num;
             if(integrity <= 0){
                 integrity = 0;
-                this.state = 4;  // set broken
             }
             return (integrity == 0)? $"package(#{id}) is broken!\n" : $"package(#{id}) receives {num:.00} damages!\n";
 
