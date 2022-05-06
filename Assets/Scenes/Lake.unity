@@ -1927,7 +1927,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0589373, y: 1}
+    m_SensorSize: {x: 2.0555556, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2030,7 +2030,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1900738566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.0682516, y: 4.6099997, z: -10}
+  m_LocalPosition: {x: -5.0919104, y: 4.6099997, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2078,6 +2078,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7903740430216953130, guid: c5fe44b4269a13249abd9bd33f2b158a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 5187006541744153418, guid: 13af225d22129b0449a6fc7bd63beac8, type: 2}
     - target: {fileID: 7903740430259887587, guid: c5fe44b4269a13249abd9bd33f2b158a, type: 3}
       propertyPath: m_Name
       value: BubbleText

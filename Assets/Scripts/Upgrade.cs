@@ -56,7 +56,7 @@ public class Upgrade
     }
 
     public string PkgLimitUp(){
-        PubVar.pkgNum = 5;
+        PubVar.pkglimit = 5;
         return "You can have one more package to select now!\n";
     }
 
