@@ -41,7 +41,7 @@ public class create_objects : MonoBehaviour
         while(keep_creating){
             i = 0;
             if(j < objLimit) create_objects_once();
-            print("create");
+            //print("create");
             yield return new WaitForSeconds(cool_down_multiple);
         }
     }
@@ -54,11 +54,11 @@ public class create_objects : MonoBehaviour
             Vector2 pos = new Vector2(x,y);
             Vector2 temp = maincam.WorldToViewportPoint(pos);
             if(Physics2D.OverlapBox(pos, _obj_rd.bounds.size, 0f) && pos.rough_in_camera()){
-                print("cannot instantiate");
+                //print("cannot instantiate");
                 continue;
             } else {
                 GameObject newObj = Instantiate(objects_to_create, pos, Quaternion.identity);
-                print($"obj: {i}");
+                //print($"obj: {i}");
                 i++;
                 j++;
                 StartCoroutine(deleteAfter(newObj));
